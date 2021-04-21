@@ -1,4 +1,7 @@
+import payload
 
+#global variable
+token = "Key value comes here"
 
 def loginPayload():
     body = {
@@ -7,13 +10,8 @@ def loginPayload():
     }
     return body
 
-class gettersAndSetters:
+def setToken(token):
+    payload.token = token
 
-    def __init__(self, token = ""):
-        self.token = token
-
-    def setToken(self, token):
-        self.token = "Token " + token
-
-    def getToken(self):
-        return self.token
+def getToken():
+    return "Token "+token

@@ -10,8 +10,7 @@ loginResponse = requests.post(url,
 response_json = loginResponse.json()
 print(response_json)
 token = response_json['data']['key']
-gettersAndSetters.setToken(token)
-print(gettersAndSetters.getToken())
+setToken(token)
 
-# assert loginResponse.status_code == 200
-# assert response_json['error'] == False
+assert loginResponse.status_code == 200
+assert response_json['error'] == False
