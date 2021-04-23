@@ -3,10 +3,10 @@ import payload
 #global variable
 token = "Key value comes here"
 
-def loginPayload():
+def loginPayload(login, password):
     body = {
-        "email" : "test@aiquire.com",
-        "password" : "123456"
+        "email" : login,
+        "password" : password
     }
     return body
 
@@ -15,3 +15,9 @@ def setToken(token):
 
 def getToken():
     return "Token "+token
+
+def setClientID(clientID):
+    payload.clientID = clientID
+
+def getClientID():
+    return payload.clientID

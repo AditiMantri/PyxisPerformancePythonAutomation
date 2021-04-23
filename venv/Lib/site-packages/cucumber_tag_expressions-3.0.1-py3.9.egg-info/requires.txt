@@ -1,0 +1,12 @@
+
+[:python_version < "3.4"]
+enum34
+
+[develop]
+coverage
+pytest>=3.2
+pytest-html>=1.19.0
+tox>=2.9
+invoke
+path.py
+pylint

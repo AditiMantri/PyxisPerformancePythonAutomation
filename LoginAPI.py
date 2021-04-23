@@ -3,7 +3,7 @@ from Utilities.configurations import *
 from Utilities.resources import *
 import requests
 
-url = getConfig()['API']['endpoint'] + apiResources.login
+url = getConfig()["API"]['endpoint'] + apiResources.login
 
 loginResponse = requests.post(url,
                               json=loginPayload())

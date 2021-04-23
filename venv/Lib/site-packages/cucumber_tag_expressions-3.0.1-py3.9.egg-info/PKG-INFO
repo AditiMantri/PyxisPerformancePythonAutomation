@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: cucumber-tag-expressions
+Version: 3.0.1
+Summary: Provides tag-expression parser for cucumber/behave
+Home-page: https://github.com/cucumber/tag-expressions-python
+Author: Jens Engel
+Author-email: jenisys@noreply.github.com
+License: MIT
+Download-URL: http://pypi.python.org/pypi/cucumber-tag-expressions
+Description:     :target: https://travis-ci.org/cucumber/tag-expressions-python
+            :alt: Travis CI Build Status
+        
+        .. image:: https://img.shields.io/pypi/v/tag-expressions.svg
+            :target: https://pypi.python.org/pypi/tag-expressions
+            :alt: Latest Version
+        
+        .. image:: https://img.shields.io/pypi/l/tag-expressions.svg
+            :target: https://pypi.python.org/pypi/tag-expressions/
+            :alt: License
+        
+        .. |logo| image:: https://github.com/cucumber-ltd/brand/raw/master/images/png/notm/cucumber-black/cucumber-black-128.png
+        
+        Cucumber tag-expressions for Python.
+        
+        |logo|
+        
+        Cucumber tag-expressions provide readable boolean expressions
+        to select features and scenarios marked with tags in Gherkin files
+        in an easy way::
+        
+            # -- SIMPLE TAG-EXPRESSION EXAMPLES:
+            @a and @b
+            @a or  @b
+            not @a
+        
+            # -- MORE TAG-EXPRESSION EXAMPLES:
+            @a and not @b
+            (@a or @b) and not @c
+        
+        
+        SEE ALSO:
+        
+        * https://cucumber.io/docs/cucumber/api/#tag-expressions
+        
+Keywords: BDD,testing,cucumber,tag-expressions,behave
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=2.7
+Provides-Extra: develop
