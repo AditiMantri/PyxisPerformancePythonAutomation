@@ -19,6 +19,23 @@
       When the Clients GetAPI is executed
       And error should be false
       Then store the client ID <ClientName>
+        Examples:
+          | ClientName |
+          |TestClient  |
+
+
+    Scenario Outline: Step 3 - Get mpadaccounts data with logged in user
+      Given the token, client id and mpadaccounts endpoint
+      When mpadaccount GetAPI is executed
+      And the error response from mpadaccount is false
+      Then store the id if adaccount name is <adaccountName>
       Examples:
-        | ClientName |
-        |TestClient  |
+        |adaccountName|
+        |Test Account|
+
+
+    Scenario: Step 4 - Get Campaign Setup Form Config
+      Given the token and getCampaignSetupFormConfig endpoint
+      When getCampaignSetupFormConfig GetAPI is executed
+      And the error response from getCampaignSetupFormConfig is false
+      Then save the config file

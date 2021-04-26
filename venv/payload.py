@@ -1,7 +1,10 @@
 import payload
+#
+# #global variable
+# token = "Key value comes here"
+# clientID = 0
+# adaccountID = 0
 
-#global variable
-token = "Key value comes here"
 
 def loginPayload(login, password):
     body = {
@@ -21,3 +24,12 @@ def setClientID(clientID):
 
 def getClientID():
     return payload.clientID
+
+def setAdaccountID(adaccountnID):
+    payload.adaccountID = adaccountnID
+
+def getAdaccountID():
+    return payload.adaccountID;
+
+def saveConfig(config):
+    payload.config = config

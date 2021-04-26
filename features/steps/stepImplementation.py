@@ -47,7 +47,7 @@ def step_impl(context):
 @given('the Authorization')
 def step_impl(context):
     context.url = getConfig()['API']['endpoint'] + apiResources.clients
-    context.Authorization = {'Authorization' : payload.getToken()}
+    context.Authorization = {'Authorization': payload.getToken()}
 
 
 @when(u'the Clients GetAPI is executed')
@@ -65,10 +65,65 @@ def step_impl(context):
 @then(u'store the client ID {ClientName}')
 def step_impl(context, ClientName):
     for result in context.response_json['data']['clients']:
-        if(result['name']) == ClientName:
+        if (result['name']) == ClientName:
             payload.setClientID(result['id'])
             print(result['name'])
             print(payload.getClientID())
             break
-    payload.setClientID(payload.setClientID(result['id']))
+
+
+# ----------------------Step3---------------------
+
+@given(u'the token, client id and mpadaccounts endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.mpadaccounts)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'mpadaccount GetAPI is executed')
+def step_impl(context):
+    context.mpadaccounts_response = requests.get(context.url,
+                                                 headers=context.Authorization)
+    context.mpadaccounts_response_json = context.mpadaccounts_response.json()
+
+
+@when(u'the error response from mpadaccount is false')
+def step_impl(context):
+    assert context.mpadaccounts_response_json['error'] == False
+
+
+@then('store the id if adaccount name is {adaccountName}')
+def step_impl(context, adaccountName):
+    for result in context.mpadaccounts_response_json['data']['adaccounts']:
+        if result['name'] == adaccountName:
+            payload.setAdaccountID(result['id'])
+            print(format(result['name']))
+            print(payload.getAdaccountID())
+            break
+
+# ----------------------Step4---------------------
+
+
+@given(u'the token and getCampaignSetupFormConfig endpoint')
+def step_impl(context):
+    context.url = getConfig()['API']['endpoint'] + apiResources.getCampaignSetupFormConfig
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'getCampaignSetupFormConfig GetAPI is executed')
+def step_impl(context):
+    context.getCampaignSetupFormConfig_response = requests.get(context.url,
+                                                               headers=context.Authorization)
+    context.getCampaignSetupFormConfig_response_json = context.getCampaignSetupFormConfig_response.json()
+
+
+@when(u'the error response from getCampaignSetupFormConfig is false')
+def step_impl(context):
+    assert context.getCampaignSetupFormConfig_response_json['error'] == False
+
+
+@then(u'save the config file')
+def step_impl(context):
+    payload.saveConfig(context.getCampaignSetupFormConfig_response_json)
 
