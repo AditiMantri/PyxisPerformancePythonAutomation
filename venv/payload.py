@@ -98,3 +98,89 @@ def saveExperimentSetupID(id):
 # Get the experiment setup ID
 def getExperimentSetupID():
     return payload.ID
+
+
+# Save the response
+def saveGetExperimentSetupResponse(response):
+    payload.response = response
+
+# Get the response
+def getGetExperimentSetupResponse():
+    return payload.response
+
+#update exp setup
+def updateLeadGenBody():
+    updatedJSON = {"data":{"campaign":{"name":"LeadGenAPItesting","status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":100,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"status":"ACTIVE"},"adset":{"name":"LeadGenAPItesting","status":"ACTIVE","billing_event":"IMPRESSIONS","adset_time_end":"2021-04-13T12:58:07+05:30","adset_time_start":"2021-04-10T13:30:17+05:30","attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LANDING_PAGE_VIEWS"},"ad_type":"image","creative":{"object_type":"SHARE","Creative Type":"Link Page Post Ad","call_to_action_type":"LEARN_MORE"},"targeting":{"age_max":22,"age_min":19,"locales":[{"name":"English (UK)","key":24,"responseType":"locale"}],"user_os":"All","flexible_spec":[{"interests":[{"id":"6003371616940","name":"Brand"}]}],"custom_audiences":[{"id":"23847574286990410","name":"Lookalike (IN, 1%) - Ranit's testing audience","subtype":"LOOKALIKE"}],"targeting_expansion":["expansion_all"],"excluded_flexible_spec":[{"behaviors":[{"id":"6016925328983","name":"Owns: Galaxy Tab S"}]}],"targeting_optimization":"none","excluded_custom_audiences":[{"id":"23847574287240410","name":"Lookalike (IN, 1% to 5%) - Ranit's testing audience","subtype":"LOOKALIKE"}],"brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":{"page_id":"245069182739198"}},"geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Dharwad","region":"Karnataka","key":"1023607"}],"regions":[],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Hubli","region":"Karnataka","key":"1027143"}],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]}}],"name":"LeadGenAPItesting","extras":{"ads_groups$geo_locations":[{"key":"1023607","name":"Dharwad","type":"city","country_code":"IN","country_name":"India","region":"Karnataka","region_id":1738,"supports_region":'true',"supports_city":'true',"responseType":"location","text":"Dharwad, Karnataka, India city"}],"ads_groups$excluded_geo_locations":[{"key":"1027143","name":"Hubli","type":"city","country_code":"IN","country_name":"India","region":"Karnataka","region_id":1738,"supports_region":'true',"supports_city":'true',"responseType":"location","text":"Hubli, Karnataka, India city"}],"ads_groups$targeting$flexible_spec":[{"id":"6003371616940","name":"Brand","type":"interests","path":["Interests","Additional interests","Brand"],"audience_size":764618930,"responseType":"interest","text":"Brand : interests"}],"ads_groups$targeting$excluded_flexible_spec":[{"id":"6016925328983","name":"Owns: Galaxy Tab S","type":"behaviors","path":["Behaviours","Mobile Device User","All Mobile Devices by Brand","Samsung","Owns: Galaxy Tab S"],"audience_size":251763,"description":"People who are likely to own a Samsung Galaxy Tab S mobile device.","responseType":"interest","text":"Owns: Galaxy Tab S : behaviors"}]}}}
+    return updatedJSON
+
+
+# Store getCreativeFiles
+def saveCreativeFiles(creativeFiles):
+    payload.creativeFiles = creativeFiles
+
+
+# Get creative files
+def getCreativeFiles():
+    return payload.creativeFiles
+
+
+# Store getCreativeTemplate
+def saveCreativeTemplate(creativeTemplate):
+    payload.creativeTemplate = creativeTemplate
+
+# Get getCreativeTemplate
+def getCreativeTemplate():
+    return payload.creativeTemplate
+
+# Save the pixel IDS
+def savePixelID(values):
+    payload.pixelID = values
+
+
+# Get the list of pixel IDS
+def getPixelID():
+    return payload.pixelID
+
+
+# Post creative body
+def getPostCreativeBody():
+    json_body = {"type":"single image","name":"pyxis","files":[{"url":"https://fb-adsuploading-files-bucket.s3.ap-south-1.amazonaws.com/dev-upload-form/client-122/creative/1618041403677_!%40%23.png","name":"1618041403677_!@#.png","type":"image/png","file_type":"image/png","carouselIndex":0}],"form_data":{"lead_gen_form_id":"254429285840340","adType":"single image","creativeName":"pyxis","primaryText":"pyxis","displayUrl":"","utmBuilderForDisplayUrl":[],"includedGeoLocations":[],"tracking_specs":{"pixel_id":"706589963501348"},"viewTags":"","cta":"LEARN_MORE","carousel":[{"file":"1618041403677_!@#.png","headline":"pyxis","description":"pyxis","websiteUrl":"https://fb.me/","utmBuilderForWebsiteUrl":[],"deepLink":""}]},"creative_json":{"lead_gen_form_id":"254429285840340","adType":"single image","creativeName":"pyxis","primaryText":"pyxis","displayUrl":"","utmBuilderForDisplayUrl":[],"includedGeoLocations":{"location_types":["home","recent"],"cities":[],"countries":[],"regions":[],"zips":[],"country_groups":[]},"tracking_specs":{"pixel_id":"706589963501348"},"viewTags":"","cta":"LEARN_MORE","carousel":[{"file":"1618041403677_!@#.png","headline":"pyxis","description":"pyxis","websiteUrl":"https://fb.me/","utmBuilderForWebsiteUrl":[],"deepLink":""}]},"approver_email":"","cc_emails":"","approval_status":"draft","comments":"","preview_url":""}
+    return json_body
+
+# Save the creative ID
+def saveCreativeID(id):
+    payload.creativeID = id
+
+# Retrieve the creative ID
+def getCreativeID():
+    return payload.creativeID
+
+# Save all the creatives
+def saveCreatives(creatives):
+    payload.creatives = creatives
+
+# Retrive all the creatives
+def getCreatives():
+    return payload.creatives
+
+# Save Story ID
+def saveStoryID(storyID):
+    payload.storyID = storyID
+
+# Get storyID
+def getStoryID():
+    return payload.storyID
+
+# publish
+def getPublishBody():
+    return {"creative_ids":[945],"story_id":"AQ-E:M:T:-TEST-N-BRD--0421-    946","json":[{"campaign":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_*AQ-E:M:T:-TEST-N-BRD--0421-    946*_DEFAULT_Apr21_LeadGenAPItesting_946","status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":100,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_19to55_ALL_MP_##AQ-FBIN-TEST-SI-100421-376|pyxis##__DEFAULT_10Apr21_946","status":"ACTIVE","tracking_specs":{"fb_pixel":"706589963501348"}},"adset":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_19to55_ALL_MP__DEFAULT_10Apr21_LeadGenAPItesting_946","status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":"2021-04-10T14:51:42+05:30","attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"creative_type":"Link Page Post Ad","object_type":"SHARE"},"targeting":{"age_max":55,"age_min":19,"user_os":"All","targeting_expansion":["expansion_all"],"targeting_optimization":"none","brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":"107973334116438","instagram_actor_id":"2685713601466369"},"geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Dharwad","region":"Karnataka","key":"1023607"}],"regions":[],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Hubli","region":"Karnataka","key":"1027143"}],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]},"photo_data_spec":{"call_to_action":{"type":"LEARN_MORE","value":{"lead_gen_form_id":"735288880548702"}},"image_name":"1618042955863_!@#.png","link":"https://fb.me/","message":"pyxis","name":"pyxis"}}]}],"creative_s3_url":"https://s3.console.aws.amazon.com/s3/buckets/fb-adsuploading-files-bucket/dev-upload-form/client-122/creative/","campaignDetails":{"945":[{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_*AQ-E:M:T:-TEST-N-BRD--0421-    946*_DEFAULT_Apr21_LeadGenAPItesting_946","adsets":[{"adset_name":"aipsm_TEST_FBIN_O:LN_Base:Multi_19to55_ALL_MP__DEFAULT_10Apr21_LeadGenAPItesting_946","ads":[{"ad_name":"aipsm_TEST_FBIN_O:LN_Base:Multi_19to55_ALL_MP_##AQ-FBIN-TEST-SI-100421-376|pyxis##__DEFAULT_10Apr21_946"}]}]}]}}
+
+
+# Save publish request ID
+def setPublishRequestID(publishID):
+    payload.publishID = publishID
+
+
+# Get publish request ID
+def getPublishRequestID():
+    return  payload.publishID

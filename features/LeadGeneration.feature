@@ -55,17 +55,87 @@
       Then capture adaccount ids when accessible is true
 
 
-    Scenario: Step 7 : Get Custom Audience
+    Scenario: Step 7 - Get Custom Audience
       Given the token, client id, adaccount id and CustomAudience endpoint
       When CustomAudience GetAPI is executed
       And the error response from CustomAudience is false
       Then capture custom audience id
 
 
-    Scenario: Step 8 : Post experiment setup campaign details
+    Scenario: Step 8 - Post experiment setup campaign details
       Given the token, client account id, ad account id and createExperimentSetup endpoint
       When the json body is sent
       And createExperimentSetup postAPI is executed
       Then verify if the error response is false
       And status of the experiment setup is Created
       Then capture the Experiment Setup id
+
+
+    Scenario: Step 9 - Get experiment setup
+      Given the token, experiment setup ID and the getExperimentSetup endpoint
+      When getExperimentSetup getAPI is executed
+      And the error response from getExperimentSetup is false
+      Then save the getExperimentSetup response
+
+
+    Scenario: Step 10 - Update experiment setup
+      Given the token,experiment setup ID and the updateExperimentSetup endpoint
+      When updateExperimentSetup putAPI is executed
+      And the error response from updateExperimentSetup is false
+      Then verify the status of the experiment setup is Updated
+
+
+    Scenario: Step 11 - Get creative
+      Given the client id, ad account id, experiment setup id and the getCreative endpoint
+      When getCreative getAPI is executed
+      And the error response from getCreative is false
+      Then verify that the data body is empty
+
+
+    Scenario: Step 12 - Get creative files
+      Given the client id and the getCreativeFiles endpoint
+      When getCreativeFiles getAPI is executed
+      And the error response from getCreativeFiles is false
+      Then store the response that we get from getCreativeFiles
+
+
+    Scenario: Step 13 - Get creative template files
+      Given the client id and the getCreativeTemplate endpoint
+      When getCreativeTemplate getAPI is executed
+      And the error response from getCreativeTemplate is false
+      Then store the response that we get from getCreativeTemplate
+
+
+    Scenario: Step 14 - Get Pixel ID
+      Given the client id and the getPixel endpoint
+      When getPixel getAPI is executed
+      And the error response from getPixel is false
+      Then store the pixel id if accessible is true
+
+
+    Scenario: Step 15 - Post the creative
+      Given the client id, ad account id, experiment setup id and the postCreative endpoint
+      When postCreative postAPI is executed
+      And the error response from postCreative is false
+      Then save the creative ID
+
+
+    Scenario: Step 16 - Get the creative
+      Given the client id, ad account id, experiment setup id and the getCreative endpoint
+      When getCreative getAPI is executed
+      And the error response from getCreative is false
+      Then store the json response from getCreative
+
+
+    Scenario: Step 17 - Get storyname
+      Given the experiment setup id and the storyname endpoint
+      When getStoryName getAPI is executed
+      And the error response from getStoryName is false
+      Then save the story id
+
+
+    Scenario: Step 18 - Publish request
+      Given client id, ad account id, experiment setup id and publish endpoint
+      When publish postAPI is executed
+      And the error response from publish is false and status is requested
+      Then save the publish request id

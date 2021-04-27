@@ -136,8 +136,8 @@ def step_impl(context):
 
 @given(u'the token, client id, adaccount id and pages endpoint')
 def step_impl(context):
-    endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), '/adaccount/', payload.getAdaccountID(),
-                                   apiResources.pages)
+    endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
+                                   payload.getAdaccountID(), apiResources.pages)
     context.url = getConfig()['API']['endpoint'] + endpoint
     context.Authorization = {'Authorization': payload.getToken()}
 
@@ -269,3 +269,271 @@ def step_impl(context):
 def step_impl(context):
     payload.saveExperimentSetupID(context.experiment_setup_json['data']['id'])
     print(payload.getExperimentSetupID())
+
+
+# ----------------------Step9---------------------
+
+@given(u'the token, experiment setup ID and the getExperimentSetup endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}".format(apiResources.getExpSetup, payload.getExperimentSetupID(), '/')
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'getExperimentSetup getAPI is executed')
+def step_impl(context):
+    context.getExperimentSetup_response = requests.get(context.url,
+                                                       headers=context.Authorization)
+    context.getExperimentSetup_response_json = context.getExperimentSetup_response.json()
+
+
+@when(u'the error response from getExperimentSetup is false')
+def step_impl(context):
+    assert context.getExperimentSetup_response_json['error'] == False
+
+
+@then(u'save the getExperimentSetup response')
+def step_impl(context):
+    payload.saveGetExperimentSetupResponse(context.getExperimentSetup_response_json)
+
+
+# ----------------------Step10---------------------
+
+@given(u'the token,experiment setup ID and the updateExperimentSetup endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}".format(apiResources.getExpSetup, payload.getExperimentSetupID(), '/')
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'updateExperimentSetup putAPI is executed')
+def step_impl(context):
+    context.updateExperimentSetup_response = requests.put(context.url,
+                                                          headers=context.Authorization,
+                                                          json=payload.updateLeadGenBody())
+    context.updateExperimentSetup_response_json = context.updateExperimentSetup_response.json()
+
+
+@when(u'the error response from updateExperimentSetup is false')
+def step_impl(context):
+    assert context.updateExperimentSetup_response_json['error'] == False
+
+
+@then(u'verify the status of the experiment setup is Updated')
+def step_impl(context):
+    assert context.updateExperimentSetup_response_json['data']['status'] == 'Updated'
+
+
+# ----------------------Step11---------------------
+
+@given(u'the client id, ad account id, experiment setup id and the getCreative endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
+                                       payload.getAdaccountID(), apiResources.experimentSetup,
+                                       payload.getExperimentSetupID(), apiResources.getCreative)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'getCreative getAPI is executed')
+def step_impl(context):
+    context.getCreative_response = requests.get(context.url,
+                                                headers=context.Authorization)
+    context.getCreative_response_json = context.getCreative_response.json()
+
+
+@when(u'the error response from getCreative is false')
+def step_impl(context):
+    assert context.getCreative_response_json['error'] == False
+
+
+@then(u'verify that the data body is empty')
+def step_impl(context):
+    assert context.getCreative_response_json['data'] == {'data': []}
+
+
+# ----------------------Step12---------------------
+
+@given(u'the client id and the getCreativeFiles endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.getCreativeFiles)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'getCreativeFiles getAPI is executed')
+def step_impl(context):
+    context.getCreativeFiles_response = requests.get(context.url,
+                                                     headers=context.Authorization)
+    context.getCreativeFiles_response_json = context.getCreativeFiles_response.json()
+
+
+@when(u'the error response from getCreativeFiles is false')
+def step_impl(context):
+    assert context.getCreativeFiles_response_json['error'] == False
+
+
+@then(u'store the response that we get from getCreativeFiles')
+def step_impl(context):
+    payload.saveCreativeFiles(context.getCreativeFiles_response)
+
+
+# ----------------------Step13---------------------
+
+
+@given(u'the client id and the getCreativeTemplate endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.getCreativeTemplates)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'getCreativeTemplate getAPI is executed')
+def step_impl(context):
+    context.getCreativeTemplate_response = requests.get(context.url,
+                                                        headers=context.Authorization)
+    context.getCreativeTemplate_response_json = context.getCreativeTemplate_response.json()
+
+
+@when(u'the error response from getCreativeTemplate is false')
+def step_impl(context):
+    assert context.getCreativeTemplate_response_json['error'] == False
+
+
+@then(u'store the response that we get from getCreativeTemplate')
+def step_impl(context):
+    payload.saveCreativeTemplate(context.getCreativeTemplate_response_json)
+
+
+# ----------------------Step14---------------------
+
+
+@given(u'the client id and the getPixel endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
+                                   payload.getAdaccountID(), apiResources.getPixelIDs)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+    print(context.url)
+
+
+@when(u'getPixel getAPI is executed')
+def step_impl(context):
+    context.getPixel_response = requests.get(context.url,
+                                             headers=context.Authorization)
+    context.getPixel_response_json = context.getPixel_response.json()
+    print(context.getPixel_response.text)
+
+
+@when(u'the error response from getPixel is false')
+def step_impl(context):
+    assert context.getPixel_response_json['error'] == False
+
+
+@then(u'store the pixel id if accessible is true')
+def step_impl(context):
+    values = []
+    for result in context.getPixel_response_json['data']:
+        if not result['error'] and result['accessible']:
+            values.append(result['value']['pixel_id'])
+    payload.savePixelID(values)
+    print(payload.getPixelID())
+
+
+# ----------------------Step15---------------------
+
+@given(u'the client id, ad account id, experiment setup id and the postCreative endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
+                                       payload.getAdaccountID(), apiResources.experimentSetup,
+                                       payload.getExperimentSetupID(), apiResources.getCreative)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'postCreative postAPI is executed')
+def step_impl(context):
+    context.postCreative_response = requests.post(context.url,
+                                                  headers=context.Authorization,
+                                                  json=payload.getPostCreativeBody())
+    context.postCreative_response_json = context.postCreative_response.json()
+
+
+@when(u'the error response from postCreative is false')
+def step_impl(context):
+    assert context.postCreative_response_json['error'] == False
+
+
+@then(u'save the creative ID')
+def step_impl(context):
+    id = context.postCreative_response_json['data']['id']
+    payload.saveCreativeID(id)
+    print(payload.getCreativeID())
+
+
+# ----------------------Step16---------------------
+
+@then(u'store the json response from getCreative')
+def step_impl(context):
+    payload.saveCreatives(context.getCreative_response_json)
+    print(payload.getCreatives())
+
+
+# ----------------------Step17---------------------
+
+
+@given(u'the experiment setup id and the storyname endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}".format(apiResources.getExpSetup, payload.getExperimentSetupID(), apiResources.getStoryName)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'getStoryName getAPI is executed')
+def step_impl(context):
+    context.getStoryName_response = requests.get(context.url,
+                                                 headers=context.Authorization)
+    context.getStoryName_response_json = context.getStoryName_response.json()
+
+
+@when(u'the error response from getStoryName is false')
+def step_impl(context):
+    context.getStoryName_response_json['error'] == False
+
+
+@then(u'save the story id')
+def step_impl(context):
+    payload.saveStoryID(context.getStoryName_response_json['data']['story_id'])
+    print(payload.getStoryID())
+
+
+# ----------------------Step18---------------------
+
+
+@given(u'client id, ad account id, experiment setup id and publish endpoint')
+def step_impl(context):
+    endpoint = "{}{}{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
+                                       payload.getAdaccountID(), apiResources.experimentSetup,
+                                       payload.getExperimentSetupID(), apiResources.publish)
+    context.url = getConfig()['API']['endpoint'] + endpoint
+    context.Authorization = {'Authorization': payload.getToken()}
+
+
+@when(u'publish postAPI is executed')
+def step_impl(context):
+    context.publish_response = requests.post(context.url,
+                                             headers=context.Authorization,
+                                             json=payload.getPublishBody())
+    context.publish_response_json = context.publish_response.json()
+
+
+@when(u'the error response from publish is false and status is requested')
+def step_impl(context):
+    assert context.publish_response_json['error'] == False
+    assert context.publish_response_json['data']['status'] == 'requested'
+
+
+@then(u'save the publish request id')
+def step_impl(context):
+    payload.setPublishRequestID(context.publish_response_json['data']['publish_request_id'])
+    print(payload.getPublishRequestID)
