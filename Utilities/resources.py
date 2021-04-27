@@ -3,3 +3,8 @@ class apiResources:
     clients = '/api/clients/'
     mpadaccounts = '/mpadaccounts/'
     getCampaignSetupFormConfig = '/api/experiment_setup/campaign-setup-form-config/'
+    getids = '/api/experiment_setup/clients/'
+    pages = '/assets/?fields=pages'
+    instagram = '/assets/?fields=instagramaccounts'
+    customAudience = '/assets/?fields=customaudiences'
+    createExpSetup = '/create/'

@@ -39,3 +39,33 @@
       When getCampaignSetupFormConfig GetAPI is executed
       And the error response from getCampaignSetupFormConfig is false
       Then save the config file
+
+
+    Scenario: Step 5 - Get pages
+      Given the token, client id, adaccount id and pages endpoint
+      When Pages GetAPI is executed
+      And the error response from getPages is false
+      Then capture page ids when accessible is true
+
+
+    Scenario: Step 6 - Get Adaccounts
+      Given the token, client id, adaccount id and adaccounts endpoint
+      When adaccount GetAPI is executed
+      And the error response from getAdaccounts is false
+      Then capture adaccount ids when accessible is true
+
+
+    Scenario: Step 7 : Get Custom Audience
+      Given the token, client id, adaccount id and CustomAudience endpoint
+      When CustomAudience GetAPI is executed
+      And the error response from CustomAudience is false
+      Then capture custom audience id
+
+
+    Scenario: Step 8 : Post experiment setup campaign details
+      Given the token, client account id, ad account id and createExperimentSetup endpoint
+      When the json body is sent
+      And createExperimentSetup postAPI is executed
+      Then verify if the error response is false
+      And status of the experiment setup is Created
+      Then capture the Experiment Setup id
