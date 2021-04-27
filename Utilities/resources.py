@@ -17,3 +17,4 @@ class apiResources:
     getPixelIDs = '/assets/?fields=pixels'
     getStoryName = '/?storyname=true'
     publish = '/publish_request/new/'
+
