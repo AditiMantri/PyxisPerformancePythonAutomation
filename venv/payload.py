@@ -85,19 +85,23 @@ def getAudienceID():
 
 
 # Get JSON body to create experiment setup
-def setLeadGenBody():
-    json_body = {"data":{"campaign":{"name":"LeadGenAPItesting","status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":80,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"status":"ACTIVE"},"adset":{"status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":"2021-04-27T20:16:59+05:30","attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"object_type":"SHARE","Creative Type":"Link Page Post Ad","call_to_action_type":"LEARN_MORE"},"targeting":{"targeting_optimization":"none","brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":{"page_id":"107973334116438"}},"geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]}}],"name":"LeadGenAPItesting","extras":{"ads_groups$geo_locations":[],"ads_groups$excluded_geo_locations":[],"ads_groups$targeting$flexible_spec":[],"ads_groups$targeting$excluded_flexible_spec":[]}}}
+def setLeadGenBody(CampaignName, DailyBudget, AdsetStartTime, page):
+    payload.setCampaignName(CampaignName)
+    payload.setDailyBudget(DailyBudget)
+    payload.setAdsetStartTime(AdsetStartTime)
+    payload.setPage(page)
+    json_body = {"data":{"campaign":{"name":CampaignName,"status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":DailyBudget,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"status":"ACTIVE"},"adset":{"status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":AdsetStartTime,"attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"object_type":"SHARE","Creative Type":"Link Page Post Ad","call_to_action_type":"LEARN_MORE"},"targeting":{"targeting_optimization":"none","brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":{"page_id":page}},"geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]}}],"name":CampaignName,"extras":{"ads_groups$geo_locations":[],"ads_groups$excluded_geo_locations":[],"ads_groups$targeting$flexible_spec":[],"ads_groups$targeting$excluded_flexible_spec":[]}}}
     return json_body
 
 
 # Store the experiment setup id after creation
 def saveExperimentSetupID(id):
-    payload.ID = id
+    payload.id = id
 
 
 # Get the experiment setup ID
 def getExperimentSetupID():
-    return payload.ID
+    return payload.id
 
 
 # Save the response
@@ -109,8 +113,14 @@ def getGetExperimentSetupResponse():
     return payload.response
 
 #update exp setup
-def updateLeadGenBody():
-    updatedJSON = {"data":{"campaign":{"name":"LeadGenAPItesting","status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":80,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"status":"ACTIVE"},"adset":{"name":"LeadGenAPItesting","status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":"2021-04-27T20:16:59+05:30","attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"object_type":"SHARE","Creative Type":"Link Page Post Ad","call_to_action_type":"LEARN_MORE"},"targeting":{"age_max":33,"age_min":22,"custom_audiences":[{"id":"23847574287240410","name":"Lookalike (IN, 1% to 5%) - Ranit's testing audience","subtype":"LOOKALIKE"},{"id":"23847574322950410","name":"Special Ad Audience (IN, 2%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"}],"targeting_optimization":"none","excluded_custom_audiences":[{"id":"23847574323680410","name":"Special Ad Audience (IN, 4% to 7%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"},{"id":"23847574286990410","name":"Lookalike (IN, 1%) - Ranit's testing audience","subtype":"LOOKALIKE"}],"brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":{"page_id":"245069182739198"}},"geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Varanasi","region":"Uttar Pradesh","key":"1046744"}],"regions":[{"name":"Karnataka","country":"IN","key":"1738"}],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]}}],"name":"LeadGenAPItesting","extras":{"ads_groups$geo_locations":[{"key":"1046744","name":"Varanasi","type":"city","country_code":"IN","country_name":"India","region":"Uttar Pradesh","region_id":1754,"supports_region":'true',"supports_city":'true',"responseType":"location","text":"Varanasi, Uttar Pradesh, India city"},{"key":"1738","name":"Karnataka","type":"region","country_code":"IN","country_name":"India","supports_region":'true',"supports_city":'true',"responseType":"location","text":"Karnataka, India region"}],"ads_groups$excluded_geo_locations":[],"ads_groups$targeting$flexible_spec":[],"ads_groups$targeting$excluded_flexible_spec":[]}}}
+def updateLeadGenBody(age_max,age_min):
+    name = payload.getCampaignName()
+    DailyBudget = payload.getDailyBudget()
+    AdsetStartTime = payload.getAdsetStartTime()
+    page = payload.getPage()
+    payload.setAgeMax(age_max)
+    payload.setAgeMin(age_min)
+    updatedJSON = {"data":{"campaign":{"name":name,"status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":DailyBudget,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"status":"ACTIVE"},"adset":{"name":name,"status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":AdsetStartTime,"attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"object_type":"SHARE","Creative Type":"Link Page Post Ad","call_to_action_type":"LEARN_MORE"},"targeting":{"age_max":age_max,"age_min":age_min,"custom_audiences":[{"id":"23847574287240410","name":"Lookalike (IN, 1% to 5%) - Ranit's testing audience","subtype":"LOOKALIKE"},{"id":"23847574322950410","name":"Special Ad Audience (IN, 2%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"}],"targeting_optimization":"none","excluded_custom_audiences":[{"id":"23847574323680410","name":"Special Ad Audience (IN, 4% to 7%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"},{"id":"23847574286990410","name":"Lookalike (IN, 1%) - Ranit's testing audience","subtype":"LOOKALIKE"}],"brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":{"page_id":page}},"geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Varanasi","region":"Uttar Pradesh","key":"1046744"}],"regions":[{"name":"Karnataka","country":"IN","key":"1738"}],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]}}],"name":name,"extras":{"ads_groups$geo_locations":[{"key":"1046744","name":"Varanasi","type":"city","country_code":"IN","country_name":"India","region":"Uttar Pradesh","region_id":1754,"supports_region":'true',"supports_city":'true',"responseType":"location","text":"Varanasi, Uttar Pradesh, India city"},{"key":"1738","name":"Karnataka","type":"region","country_code":"IN","country_name":"India","supports_region":'true',"supports_city":'true',"responseType":"location","text":"Karnataka, India region"}],"ads_groups$excluded_geo_locations":[],"ads_groups$targeting$flexible_spec":[],"ads_groups$targeting$excluded_flexible_spec":[]}}}
     return updatedJSON
 
 
@@ -173,13 +183,48 @@ def getStoryID():
 
 # publish
 def getPublishBody():
-    return {"creative_ids":[1046],"story_id":"AQ-E:M:T:-TEST-A-BRD--0421-    1069","json":[{"campaign":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_*AQ-E:M:T:-TEST-A-BRD--0421-    1069*_DEFAULT_Apr21_LeadGenAPItesting_1069","status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":80,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP_##AQ-FBIN-TEST-SI-270421-476|cr_bmp##__DEFAULT_27Apr21_1069","status":"ACTIVE","tracking_specs":{"fb_pixel":"706589963501348"}},"adset":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP__DEFAULT_27Apr21_LeadGenAPItesting_1069","status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":"2021-04-27T20:16:59+05:30","attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"creative_type":"Link Page Post Ad","object_type":"SHARE"},"targeting":{"age_max":33,"age_min":22,"custom_audiences":[{"id":"23847574287240410","name":"Lookalike (IN, 1% to 5%) - Ranit's testing audience","subtype":"LOOKALIKE"},{"id":"23847574322950410","name":"Special Ad Audience (IN, 2%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"}],"targeting_optimization":"none","excluded_custom_audiences":[{"id":"23847574323680410","name":"Special Ad Audience (IN, 4% to 7%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"},{"id":"23847574286990410","name":"Lookalike (IN, 1%) - Ranit's testing audience","subtype":"LOOKALIKE"}],"brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":"245069182739198"},"geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Varanasi","region":"Uttar Pradesh","key":"1046744"}],"regions":[{"name":"Karnataka","country":"IN","key":"1738"}],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]},"photo_data_spec":{"call_to_action":{"type":"LEARN_MORE","value":{"lead_gen_form_id":"254429285840340"}},"image_name":"1617808700111_img-ui-cdgsx.bmp","link":"https://fb.me/","message":"123","name":"12"}}]}],"creative_s3_url":"https://s3.console.aws.amazon.com/s3/buckets/fb-adsuploading-files-bucket/dev-upload-form/client-122/creative/","campaignDetails":{"1046":[{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_*AQ-E:M:T:-TEST-A-BRD--0421-    1069*_DEFAULT_Apr21_LeadGenAPItesting_1069","adsets":[{"adset_name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP__DEFAULT_27Apr21_LeadGenAPItesting_1069","ads":[{"ad_name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP_##AQ-FBIN-TEST-SI-270421-476|cr_bmp##__DEFAULT_27Apr21_1069"}]}]}]}}
+    name = payload.getCampaignName()
+    expID = str(payload.getExperimentSetupID())
+    age_max = payload.getAgeMax()
+    age_min = payload.getAgeMin()
+    return {"creative_ids":[1046],"story_id":payload.getStoryID(),"json":[{"campaign":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_*AQ-E:M:T:-TEST-A-BRD--0421-    "+expID+"*_AUTOMATION_"+name+"_"+expID+"","status":"PAUSED","objective":"Lead Generation","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":80,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP_##AQ-FBIN-TEST-SI-270421-476|cr_bmp##__AUTOMATION_"+expID+"","status":"ACTIVE","tracking_specs":{"fb_pixel":"706589963501348"}},"adset":{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP__AUTOMATION_"+name+"_"+expID+"","status":"ACTIVE","billing_event":"IMPRESSIONS","promoted_object":"LEAD_GENERATION","adset_time_start":"2021-04-27T20:16:59+05:30","attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"optimization_goal":"LEAD_GENERATION"},"ad_type":"image","creative":{"creative_type":"Link Page Post Ad","object_type":"SHARE"},"targeting":{"age_max":age_max,"age_min":age_min,"custom_audiences":[{"id":"23847574287240410","name":"Lookalike (IN, 1% to 5%) - Ranit's testing audience","subtype":"LOOKALIKE"},{"id":"23847574322950410","name":"Special Ad Audience (IN, 2%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"}],"targeting_optimization":"none","excluded_custom_audiences":[{"id":"23847574323680410","name":"Special Ad Audience (IN, 4% to 7%) - Ranit's testing audience","subtype":"REGULATED_CATEGORIES_AUDIENCE"},{"id":"23847574286990410","name":"Lookalike (IN, 1%) - Ranit's testing audience","subtype":"LOOKALIKE"}],"brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":"245069182739198"},"geo_locations":{"countries":[],"cities":[{"country":"IN","name":"Varanasi","region":"Uttar Pradesh","key":"1046744"}],"regions":[{"name":"Karnataka","country":"IN","key":"1738"}],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]},"photo_data_spec":{"call_to_action":{"type":"LEARN_MORE","value":{"lead_gen_form_id":"254429285840340"}},"image_name":"1617808700111_img-ui-cdgsx.bmp","link":"https://fb.me/","message":"123","name":"12"}}]}],"creative_s3_url":"https://s3.console.aws.amazon.com/s3/buckets/fb-adsuploading-files-bucket/dev-upload-form/client-122/creative/","campaignDetails":{"1046":[{"name":"aipsm_TEST_FBIN_O:LN_Base:Multi_*AQ-E:M:T:-TEST-A-BRD--0421-    "+expID+"*_AUTOMATION_"+name+"_"+expID+"","adsets":[{"adset_name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP__AUTOMATION_"+name+"_"+expID+"","ads":[{"ad_name":"aipsm_TEST_FBIN_O:LN_Base:Multi_22to33_ALL_MP_##AQ-FBIN-TEST-SI-270421-476|cr_bmp##__AUTOMATION_"+expID+""}]}]}]}}
 
-# Save publish request ID
-def setPublishRequestID(publishID):
-    payload.publishID = publishID
+
+# --------------------------------------------------------------------------------------------------
+
+def setCampaignName(CampaignName):
+    payload.CampaignName = CampaignName
+
+def getCampaignName():
+    return payload.CampaignName
 
 
-# Get publish request ID
-def getPublishRequestID():
-    return  payload.publishID
+def setDailyBudget(DailyBudget):
+    payload.DailyBudget = DailyBudget
+
+def getDailyBudget():
+    return payload.DailyBudget
+
+def setAdsetStartTime(AdsetStartTime):
+    payload.AdsetStartTime = AdsetStartTime
+
+def getAdsetStartTime():
+    return payload.AdsetStartTime
+
+def setPage(page):
+    payload.page = page
+
+def getPage():
+    return payload.page
+
+def setAgeMax(age):
+    payload.age_max = age
+
+def getAgeMax():
+    return payload.age_max
+
+def setAgeMin(age):
+    payload.age_min = age
+
+def getAgeMin():
+    return payload.age_min

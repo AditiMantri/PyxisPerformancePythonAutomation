@@ -1,4 +1,5 @@
 import json
+import random
 
 import payload
 from behave import *
@@ -241,12 +242,19 @@ def step_impl(context):
     context.Authorization = {'Authorization': payload.getToken()}
 
 
-@when(u'the json body is sent')
-def step_impl(context):
-    context.leadgen_body = payload.setLeadGenBody()
+@when(u'the json body is sent with {CampaignName}, {DailyBudget}, {AdsetStartTime}')
+def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
+    page = payload.getPages()
+    print(page)
+    randomint = random.randint(1, len(page))
+    print(randomint)
+    val = page[randomint - 1]
+    print(val)
+    context.leadgen_body = payload.setLeadGenBody(CampaignName, DailyBudget, AdsetStartTime, val)
+    print(context.leadgen_body)
 
 
-@when(u'createExperimentSetup postAPI is executed')
+@when(u'create ExperimentSetup postAPI is executed')
 def step_impl(context):
     context.experiment_setup = requests.post(url=context.url,
                                              headers=context.Authorization,
@@ -256,8 +264,7 @@ def step_impl(context):
 
 @then(u'verify if the error response is false')
 def step_impl(context):
-    print(context.url)
-    print(context.experiment_setup.text)
+    assert context.experiment_setup_json['error'] == False
 
 
 @then(u'status of the experiment setup is Created')
@@ -306,11 +313,11 @@ def step_impl(context):
     context.Authorization = {'Authorization': payload.getToken()}
 
 
-@when(u'updateExperimentSetup putAPI is executed')
-def step_impl(context):
+@when(u'updateExperimentSetup putAPI is executed with maxAge={maxAge} and minAge={minAge}')
+def step_impl(context, maxAge, minAge):
     context.updateExperimentSetup_response = requests.put(context.url,
                                                           headers=context.Authorization,
-                                                          json=payload.updateLeadGenBody())
+                                                          json=payload.updateLeadGenBody(maxAge, minAge))
     context.updateExperimentSetup_response_json = context.updateExperimentSetup_response.json()
 
 
@@ -535,6 +542,37 @@ def step_impl(context):
 
 @then(u'save the publish request id')
 def step_impl(context):
-    payload.setPublishRequestID(context.publish_response_json['data']['publish_request_id'])
-    print(payload.getPublishRequestID)
+    ID = context.publish_response_json['data']['publish_request_id']
+    print(ID)
 
+
+# ----------------------Step18---------------------
+
+
+@given(u'expriment setup id and the endpoint')
+def step_impl(context):
+    context.url = getConfig()['API']['adspipeline'] + apiResources.publishStatus
+
+
+@when(u'getAPI is executed')
+def step_impl(context):
+    context.status = requests.get(context.url)
+    context.status_json = context.status.json()
+
+
+@when(u'error status is 200')
+def step_impl(context):
+    assert context.status_json['statusCode'] == 200
+
+
+@then(u'verify the status is SUCCESS')
+def step_impl(context):
+    statusCode = context.status_json['statusCode']
+    assert statusCode == 200
+    for result in context.status_json['data']['tasks']:
+        if result['storyId'] == payload.getStoryID():
+            print(result['storyId'])
+            break
+    assert result['status'] == "PENDING"
+
+    print("The experiment setup was successfully created and is in upload pipeline now")

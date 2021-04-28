@@ -17,4 +17,4 @@ class apiResources:
     getPixelIDs = '/assets/?fields=pixels'
     getStoryName = '/?storyname=true'
     publish = '/publish_request/new/'
-
+    publishStatus = '/ads/queries/get-ads?'

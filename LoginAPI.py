@@ -1,3 +1,4 @@
+import random
 
 import payload
 from payload import *
@@ -34,5 +35,11 @@ import requests
 
 # check = requests.post(url=url, headers=Authorization, json=json.load("C:\\Users\\Aditi
 # Mantri\\PycharmProjects\\PyxisPerformancePythonAutomation\\jsonBody\\CreateExpSetupLeadGen")) print(check.text)
+#
+# print("{}{}{}".format(apiResources.getExpSetup, 106, '/'))
 
-print("{}{}{}".format(apiResources.getExpSetup, 106, '/'))
+a = [111, 222, 333, 444, 555]
+length = len(a)
+val = random.randint(0, length)
+print(a[val])
+
