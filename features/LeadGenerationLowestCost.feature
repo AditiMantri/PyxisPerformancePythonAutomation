@@ -1,6 +1,6 @@
 # Author : Aditi Mantri
 
-  Feature: Lead Generation end to end API
+  Feature: Lead Generation end to end API with lowest cost
 
     @smoke
     Scenario Outline: Step 1 - Login
@@ -78,7 +78,7 @@
       Then capture the Experiment Setup id
         Examples:
           |CampaignName|DailyBudget|AdsetStartTime           |
-          |test_fullFlow  |100        |2021-04-27T20:16:59+05:30|
+          |Demo  |100        |2021-04-27T20:16:59+05:30|
 
 
     Scenario: Step 9 - Get experiment setup
