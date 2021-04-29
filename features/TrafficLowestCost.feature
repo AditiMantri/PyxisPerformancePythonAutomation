@@ -1,5 +1,7 @@
  Feature: Lead Generation end to end API with lowest cost
 
+
+   @smoke @traffic
    Scenario Outline: Step 8 - Post experiment setup campaign details
       Given the token, client account id, ad account id and createExperimentSetup endpoint
       When the json body is sent with <CampaignName>, <DailyBudget>, <AdsetStartTime> for Traffic
@@ -9,4 +11,4 @@
       Then capture the Experiment Setup id
         Examples:
           |CampaignName|DailyBudget|AdsetStartTime           |
-          |Traffic     |100        |2021-04-27T20:16:59+05:30|
+          |Traffic     |100        |2021-06-27T20:16:59+05:30|
