@@ -71,14 +71,14 @@
     @smoke
     Scenario Outline: Step 8 - Post experiment setup campaign details
       Given the token, client account id, ad account id and createExperimentSetup endpoint
-      When the json body is sent with <CampaignName>, <DailyBudget>, <AdsetStartTime>
+      When the json body is sent with <CampaignName>, <DailyBudget>, <AdsetStartTime> for Leadgen
       And create ExperimentSetup postAPI is executed
       Then verify if the error response is false
       And status of the experiment setup is Created
       Then capture the Experiment Setup id
         Examples:
           |CampaignName|DailyBudget|AdsetStartTime           |
-          |Demo  |100        |2021-04-27T20:16:59+05:30|
+          |Demo        |100        |2021-04-27T20:16:59+05:30|
 
 
     Scenario: Step 9 - Get experiment setup
@@ -155,7 +155,7 @@
 
 
     Scenario: Step 19 - Verify the status of the task on middleware
-      Given expriment setup id and the endpoint
+      Given experiment setup id and the endpoint
       When getAPI is executed
       And error status is 200
       Then verify the status is SUCCESS

@@ -242,15 +242,22 @@ def step_impl(context):
     context.Authorization = {'Authorization': payload.getToken()}
 
 
-@when(u'the json body is sent with {CampaignName}, {DailyBudget}, {AdsetStartTime}')
+@when(u'the json body is sent with {CampaignName}, {DailyBudget}, {AdsetStartTime} for Leadgen')
 def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
     page = payload.getPages()
-    print(page)
     randomint = random.randint(1, len(page))
-    print(randomint)
     val = page[randomint - 1]
-    print(val)
     context.leadgen_body = payload.setLeadGenBody(CampaignName, DailyBudget, AdsetStartTime, val)
+    print(context.leadgen_body)
+
+
+@when(u'the json body is sent with {CampaignName}, {DailyBudget}, {AdsetStartTime} for Traffic')
+def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
+    page = payload.getPages()
+    randomint = random.randint(1, len(page))
+    val = page[randomint - 1]
+    context.leadgen_body = payload.setTrafficBody(CampaignName, DailyBudget, AdsetStartTime, val)
+    print("TRAFFIC___________________________________________________")
     print(context.leadgen_body)
 
 
@@ -546,10 +553,10 @@ def step_impl(context):
     print(ID)
 
 
-# ----------------------Step18---------------------
+# ----------------------Step19---------------------
 
 
-@given(u'expriment setup id and the endpoint')
+@given(u'experiment setup id and the endpoint')
 def step_impl(context):
     context.url = getConfig()['API']['adspipeline'] + apiResources.publishStatus
 
