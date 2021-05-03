@@ -1,4 +1,5 @@
 import payload
+import xlrd
 #
 # #global variable
 # token = "Key value comes here"
@@ -105,6 +106,10 @@ def setTrafficBody(CampaignName, DailyBudget, AdsetStartTime, page):
     payload.setAdsetStartTime(AdsetStartTime)
     payload.setPage(page)
     json_body = {"data":{"campaign":{"name":CampaignName,"status":"PAUSED","objective":"Traffic","buying_type":"AUCTION","bid_strategy":"Lowest Cost","daily_budget":DailyBudget,"campaign_budget":"DAILY_BUDGET"},"ads_groups":[{"ad":{"status":"ACTIVE"},"adset":{"status":"ACTIVE","billing_event":"IMPRESSIONS","adset_time_start":AdsetStartTime,"attribution_spec":[{"event_type":"CLICK_THROUGH","window_days":1}],"destination_type":"Website","optimization_goal":"LANDING_PAGE_VIEWS"},"ad_type":"image","creative":{"object_type":"SHARE","Creative Type":"Link Page Post Ad","instagram_actor_id":"2685713601466369","call_to_action_type":"LEARN_MORE"},"targeting":{"targeting_optimization":"none","brand_safety_content_filter_levels":["FACEBOOK_STANDARD","AN_STANDARD"]},"story_spec":{"page_id":{"page_id":page},"instagram_actor_id":"2685713601466369"},"geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home","recent"]},"excluded_geo_locations":{"countries":[],"cities":[],"regions":[],"zips":[],"country_groups":[],"location_types":["home"]}}],"name":CampaignName,"extras":{"ads_groups$geo_locations":[],"ads_groups$excluded_geo_locations":[],"ads_groups$targeting$flexible_spec":[],"ads_groups$targeting$excluded_flexible_spec":[]}}}
+    # loc = ("Utilities/data.xls")
+    # wb = xlrd.open_workbook(loc)
+    # sheet = wb.sheet_by_index(0)
+    # json_body = sheet.cell_value(1, 2)
     return json_body
 
 
@@ -186,8 +191,8 @@ def getPostCreativeBodyForLeadgen():
 def getPostCreativeBodyForTraffic():
     return {"type":"single video","name":"Single video","files":[{"url":"https://fb-adsuploading-files-bucket.s3.ap-south-1.amazonaws.com/dev-upload-form/client-122/creative/1615804150608_Planningaholiday_Compare&saveonFlights&HotelswithPayZapp.HDFCBank,India'sno.1bank_.mp4","name":"1615804150608_Planningaholiday_Compare&saveonFlights&HotelswithPayZapp.HDFCBank,India'sno.1bank_.mp4","type":"video/mp4","file_type":"video/mp4","carouselIndex":0}],"form_data":{"lead_gen_form_id":"","adType":"single video","creativeName":"Single video","primaryText":"prim","displayUrl":"","utmBuilderForDisplayUrl":[],"includedGeoLocations":[],"tracking_specs":{"pixel_id":"706589963501348"},"viewTags":[],"cta":"CONTACT_US","carousel":[{"file":"1615804150608_Planningaholiday_Compare&saveonFlights&HotelswithPayZapp.HDFCBank,India'sno.1bank_.mp4","headline":"head","description":"","websiteUrl":"www.pyxispm.com","deepLink":"","utmBuilderForWebsiteUrl":[]}]},"creative_json":{"lead_gen_form_id":"","adType":"single video","creativeName":"Single video","primaryText":"prim","displayUrl":"","utmBuilderForDisplayUrl":[],"includedGeoLocations":{"location_types":["home","recent"],"cities":[],"countries":[],"regions":[],"zips":[],"country_groups":[]},"tracking_specs":{"pixel_id":"706589963501348"},"viewTags":[],"cta":"CONTACT_US","carousel":[{"file":"1615804150608_Planningaholiday_Compare&saveonFlights&HotelswithPayZapp.HDFCBank,India'sno.1bank_.mp4","headline":"head","description":"","websiteUrl":"www.pyxispm.com","deepLink":"","utmBuilderForWebsiteUrl":[]}]},"approver_email":"","cc_emails":"","approval_status":"draft","comments":"","preview_url":""}
 # Save the creative ID
-def saveCreativeID(id):
-    payload.creativeID = id
+def saveCreativeID(creativeID):
+    payload.creativeID = creativeID
 
 # Retrieve the creative ID
 def getCreativeID():

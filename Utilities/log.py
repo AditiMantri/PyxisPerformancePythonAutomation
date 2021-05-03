@@ -4,7 +4,6 @@ import sys
 
 
 def custom_logger(log_level=logging.DEBUG, filename='log.log', logger_name=""):
-
     # Set logger_name to class or method name
     if logger_name == "": logger_name = inspect.stack()[1][3]
 

@@ -1,236 +1,119 @@
-30/04/2021 07:08:48 PM - <module> - INFO - 
+03/05/2021 05:41:40 PM - <module> - INFO - 
 
 ****************************NEW RUN****************************
 
 
-30/04/2021 07:08:48 PM - <module> - INFO - 
+03/05/2021 05:41:40 PM - <module> - INFO - 
 
 ---------------Step 1 - Login---------------
-30/04/2021 07:08:48 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-30/04/2021 07:08:49 PM - <module> - INFO - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxOTg3NjMyOSwianRpIjoiNzQ1NTJiMjEwNThkNGRiMjhlNzU3ZTdmNzFjYWM4YWQiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.ZFdnju6SKCZpU3aYYj1kc-IeTCu-4bqx2lpl9qMVRIo', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzkwMjI5LCJqdGkiOiJhY2Q3NWI5MzYyYTU0MGVjODVkMmZjNTdiN2M5NmZkYSIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.ohnLtZhpyr47XIlESGK2Ke92OKLnw0SkGFSYk3ugQP8'}}
-30/04/2021 07:08:49 PM - <module> - INFO - Login status: 200
-30/04/2021 07:08:49 PM - <module> - INFO - Login error status: False
-30/04/2021 07:08:49 PM - <module> - INFO - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-30/04/2021 07:08:49 PM - <module> - INFO - 
+03/05/2021 05:41:40 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
+03/05/2021 05:41:41 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMDEzMDMwMSwianRpIjoiYmExNTFiMTVjMTM3NDRjNTg4OTkzNmI1NWIwZTJmYWMiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.AAZhFbTWjh8gPJAS-NRdfXBS75li-rAHRWAZ-KODC3A', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIwMDQ0MjAxLCJqdGkiOiI2YmE4YTM3MjU1MzI0MWQ1OWE3YzM3N2ZiZjY0Njc0NiIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.dt3TynZNqI55zLjtYpvMWLnZL-rvxjYFAy-c7pOI7NE'}}
+03/05/2021 05:41:41 PM - <module> - DEBUG - Login status: 200
+03/05/2021 05:41:41 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:41:41 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
 
----------------Step 2 - Get clients associated with the logged in user---------------
-30/04/2021 07:08:49 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-30/04/2021 07:08:52 PM - <module> - INFO - Login error status: False
-30/04/2021 07:08:52 PM - <module> - INFO - Client Name is: TestClient
-30/04/2021 07:08:52 PM - <module> - INFO - Client ID is: 122
-30/04/2021 07:08:52 PM - <module> - INFO - 
 
----------------Step 3 - Get mpadaccounts data with logged in user---------------
-30/04/2021 07:08:52 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-30/04/2021 07:09:04 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:04 PM - <module> - INFO - Ad account nameTest Account
-30/04/2021 07:09:04 PM - <module> - INFO - Ad account ID: 112
-30/04/2021 07:09:04 PM - <module> - INFO - 
+03/05/2021 05:41:41 PM - <module> - INFO - ---------------Step 2 - Get clients associated with the logged in user---------------
+03/05/2021 05:41:41 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
+03/05/2021 05:41:45 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:41:45 PM - <module> - DEBUG - Client Name is: TestClient
+03/05/2021 05:41:45 PM - <module> - DEBUG - Client ID is: 122
 
----------------Step 4 - Get Campaign Setup Form Config---------------
-30/04/2021 07:09:04 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/campaign-setup-form-config/
-30/04/2021 07:09:06 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:06 PM - <module> - INFO - 
 
----------------Step 5 - Get pages---------------
-30/04/2021 07:09:06 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=pages
-30/04/2021 07:09:06 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:06 PM - <module> - INFO - The page ids are ['107973334116438', '109280360424316', '105092258056322', '461441901347474', '245069182739198', '111320853636662', '102529741293471', '2209662149285340', '181951488809425']
-30/04/2021 07:09:06 PM - <module> - INFO - 
+03/05/2021 05:41:45 PM - <module> - INFO - ---------------Step 3 - Get mpadaccounts data with logged in user---------------
+03/05/2021 05:41:45 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
+03/05/2021 05:42:01 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:01 PM - <module> - DEBUG - Ad account nameTest Account
+03/05/2021 05:42:01 PM - <module> - DEBUG - Ad account ID: 112
 
----------------Step 6 - Get Instagram account---------------
-30/04/2021 07:09:06 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=instagramaccounts
-30/04/2021 07:09:07 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:07 PM - <module> - INFO - The instagram account ids are ['2685713601466369', '2383839475018698']
-30/04/2021 07:09:07 PM - <module> - INFO - 
 
----------------Step 7 - Get Custom Audience---------------
-30/04/2021 07:09:07 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=customaudiences
-30/04/2021 07:09:07 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:07 PM - <module> - INFO - Audience ID is: ['23847574323670410', '23847574323660410', '23847574322950410', '23847574287240410', '23847574267590410', '23847486918840410', '23847486337290410', '23845611836710410', '23847138477030410', '23845520166910410', '23844367940690410', '23847574323680410', '23847574286990410', '23847486913080410', '23846997646280410', '23846994685100410']
-30/04/2021 07:09:07 PM - <module> - INFO - 
+03/05/2021 05:42:01 PM - <module> - INFO - ---------------Step 4 - Get Campaign Setup Form Config---------------
+03/05/2021 05:42:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/campaign-setup-form-config/
+03/05/2021 05:42:06 PM - <module> - DEBUG - Login error status: False
 
----------------Step 8 - Post experiment setup campaign details---------------
-30/04/2021 07:09:07 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/create/
-30/04/2021 07:09:07 PM - <module> - INFO - The data that is sent to post API are, Campaign Name = Lead1, Daily Budget = 100, Ad set Start Time = 2021-07-27T20:16:59+05:30 Page id = 245069182739198 and Page name is = Page01
-30/04/2021 07:09:07 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:07 PM - <module> - INFO - Status of Experiment setup: Created
-30/04/2021 07:09:07 PM - <module> - INFO - Experiment setup id is: 1178
-30/04/2021 07:09:07 PM - <module> - INFO - 
 
----------------Step 9 - Get experiment setup---------------
-30/04/2021 07:09:07 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1178/
-30/04/2021 07:09:08 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:08 PM - <module> - INFO - 
+03/05/2021 05:42:06 PM - <module> - INFO - ---------------Step 5 - Get pages---------------
+03/05/2021 05:42:06 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=pages
+03/05/2021 05:42:06 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:06 PM - <module> - DEBUG - The page ids are ['107973334116438', '109280360424316', '105092258056322', '461441901347474', '245069182739198', '111320853636662', '102529741293471', '2209662149285340', '181951488809425']
 
----------------Step 10 - Update experiment setup---------------
-30/04/2021 07:09:08 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1178/
-30/04/2021 07:09:08 PM - <module> - INFO - Update the experiment setup with the following details: Min age = 33and Max age = 44
-30/04/2021 07:09:08 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:08 PM - <module> - INFO - The status of the updated experiment setup is : Updated
-30/04/2021 07:09:08 PM - <module> - INFO - 
 
----------------Step 11 - Get creative---------------
-30/04/2021 07:09:08 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1178/creative/
-30/04/2021 07:09:08 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:08 PM - <module> - INFO - 
+03/05/2021 05:42:06 PM - <module> - INFO - ---------------Step 6 - Get Instagram account---------------
+03/05/2021 05:42:06 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=instagramaccounts
+03/05/2021 05:42:07 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:07 PM - <module> - DEBUG - The instagram account ids are ['2685713601466369', '2383839475018698']
 
----------------Step 12 - Get creative files---------------
-30/04/2021 07:09:08 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/creative_files/
-30/04/2021 07:09:09 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:09 PM - <module> - INFO - 
 
----------------Step 13 - Get creative template files---------------
-30/04/2021 07:09:09 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/creative_templates/
-30/04/2021 07:09:10 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:10 PM - <module> - INFO - 
+03/05/2021 05:42:07 PM - <module> - INFO - ---------------Step 7 - Get Custom Audience---------------
+03/05/2021 05:42:07 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=customaudiences
+03/05/2021 05:42:09 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:09 PM - <module> - DEBUG - Audience ID is: ['23847574323670410', '23847574323660410', '23847574322950410', '23847574287240410', '23847574267590410', '23847486918840410', '23847486337290410', '23845611836710410', '23847138477030410', '23845520166910410', '23844367940690410', '23847574323680410', '23847574286990410', '23847486913080410', '23846997646280410', '23846994685100410']
 
----------------Step 14 - Get Pixel ID---------------
-30/04/2021 07:09:10 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=pixels
-30/04/2021 07:09:10 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:10 PM - <module> - INFO - Pixel ids are: ['706589963501348', '1055813604760341', '571628820037566', '380740899476965']
-30/04/2021 07:09:10 PM - <module> - INFO - 
 
----------------Step 15 - Post the creative---------------
-30/04/2021 07:09:10 PM - <module> - INFO - Post the creative: /creative/
-30/04/2021 07:09:11 PM - <module> - INFO - Post the creative: /creative/
-30/04/2021 07:09:11 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:11 PM - <module> - INFO - The creative ID is: 1124
-30/04/2021 07:09:11 PM - <module> - INFO - 
+03/05/2021 05:42:09 PM - <module> - INFO - ---------------Step 8 - Post experiment setup campaign details---------------
+03/05/2021 05:42:09 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/create/
+03/05/2021 05:42:09 PM - <module> - DEBUG - The data that is sent to post API are, Campaign Name = Traffic1, Daily Budget = 1111, Ad set Start Time = 2021-06-27T20:16:59+05:30 Page id = 245069182739198 and Page name is = Page01
+03/05/2021 05:42:12 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:12 PM - <module> - DEBUG - Status of Experiment setup: Created
+03/05/2021 05:42:12 PM - <module> - DEBUG - Experiment setup id is: 1190
 
----------------Step 11 - Get creative---------------
-30/04/2021 07:09:11 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1178/creative/
-30/04/2021 07:09:12 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:12 PM - <module> - INFO - 
 
----------------Step 16 - Get the creative---------------
-30/04/2021 07:09:12 PM - <module> - INFO - 
+03/05/2021 05:42:12 PM - <module> - INFO - ---------------Step 9 - Get experiment setup---------------
+03/05/2021 05:42:12 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1190/
+03/05/2021 05:42:12 PM - <module> - DEBUG - Login error status: False
 
----------------Step 17 - Get storyname---------------
-30/04/2021 07:09:12 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1178/?storyname=true
-30/04/2021 07:09:12 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:12 PM - <module> - INFO - Story ID is: AQ-E:M:T:-TEST-A-BRD--0421-    1178
-30/04/2021 07:09:12 PM - <module> - INFO - 
 
----------------Step 18 - Publish request---------------
-30/04/2021 07:09:12 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1178/publish_request/new/
-30/04/2021 07:09:17 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:17 PM - <module> - INFO - Status of the API request is: requested
-30/04/2021 07:09:17 PM - <module> - INFO - 
+03/05/2021 05:42:12 PM - <module> - INFO - ---------------Step 10 - Update experiment setup---------------
+03/05/2021 05:42:12 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1190/
+03/05/2021 05:42:12 PM - <module> - DEBUG - Update the experiment setup with the following details: Min age = 30and Max age = 40
+03/05/2021 05:42:12 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:12 PM - <module> - DEBUG - The status of the updated experiment setup is : Updated
 
----------------Step 19 - AdsPipeline---------------
-30/04/2021 07:09:17 PM - <module> - INFO - URL is set to: https://pyxis-performance-stg.pyxispm.com/ads/queries/get-ads?
-30/04/2021 07:09:18 PM - <module> - INFO - The status code is: 200
-30/04/2021 07:09:18 PM - <module> - INFO - The experiment setup is created successfully on Aiqurie dashboard and has been pushed to Upload pipeline
-30/04/2021 07:09:18 PM - <module> - INFO - 
 
----------------Step 1 - Login---------------
-30/04/2021 07:09:18 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-30/04/2021 07:09:19 PM - <module> - INFO - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxOTg3NjM1OSwianRpIjoiMWU5YjRmNTE3YTUwNGFlNDg2MTgwNmI1OTFjZTEzYzkiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.Ad2efkDX9wzXGd1VYc1XfDsONeiBfaIc-OM60VLogcE', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzkwMjU5LCJqdGkiOiJjYjVmZmJhMDBmZTc0NTkwYWJlYWU4NDEyYjkxMGI0MSIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.eQEOjeKlXbTDBh0We51Q4itBcc4rrUcqJk_ZwbZN-tM'}}
-30/04/2021 07:09:19 PM - <module> - INFO - Login status: 200
-30/04/2021 07:09:19 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:19 PM - <module> - INFO - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-30/04/2021 07:09:19 PM - <module> - INFO - 
+03/05/2021 05:42:12 PM - <module> - INFO - ---------------Step 11 - Get creative---------------
+03/05/2021 05:42:12 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1190/creative/
+03/05/2021 05:42:13 PM - <module> - DEBUG - Login error status: False
 
----------------Step 2 - Get clients associated with the logged in user---------------
-30/04/2021 07:09:19 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-30/04/2021 07:09:24 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:24 PM - <module> - INFO - Client Name is: TestClient
-30/04/2021 07:09:24 PM - <module> - INFO - Client ID is: 122
-30/04/2021 07:09:24 PM - <module> - INFO - 
 
----------------Step 3 - Get mpadaccounts data with logged in user---------------
-30/04/2021 07:09:24 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-30/04/2021 07:09:38 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:38 PM - <module> - INFO - Ad account nameTest Account
-30/04/2021 07:09:38 PM - <module> - INFO - Ad account ID: 112
-30/04/2021 07:09:38 PM - <module> - INFO - 
+03/05/2021 05:42:13 PM - <module> - INFO - ---------------Step 12 - Get creative files---------------
+03/05/2021 05:42:13 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/creative_files/
+03/05/2021 05:42:13 PM - <module> - DEBUG - Login error status: False
 
----------------Step 4 - Get Campaign Setup Form Config---------------
-30/04/2021 07:09:38 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/campaign-setup-form-config/
-30/04/2021 07:09:42 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:42 PM - <module> - INFO - 
 
----------------Step 5 - Get pages---------------
-30/04/2021 07:09:42 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=pages
-30/04/2021 07:09:44 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:44 PM - <module> - INFO - The page ids are ['107973334116438', '109280360424316', '105092258056322', '461441901347474', '245069182739198', '111320853636662', '102529741293471', '2209662149285340', '181951488809425']
-30/04/2021 07:09:44 PM - <module> - INFO - 
+03/05/2021 05:42:13 PM - <module> - INFO - ---------------Step 13 - Get creative template files---------------
+03/05/2021 05:42:13 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/creative_templates/
+03/05/2021 05:42:14 PM - <module> - DEBUG - Login error status: False
 
----------------Step 6 - Get Instagram account---------------
-30/04/2021 07:09:44 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=instagramaccounts
-30/04/2021 07:09:44 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:44 PM - <module> - INFO - The instagram account ids are ['2685713601466369', '2383839475018698']
-30/04/2021 07:09:44 PM - <module> - INFO - 
 
----------------Step 7 - Get Custom Audience---------------
-30/04/2021 07:09:44 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=customaudiences
-30/04/2021 07:09:44 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:44 PM - <module> - INFO - Audience ID is: ['23847574323670410', '23847574323660410', '23847574322950410', '23847574287240410', '23847574267590410', '23847486918840410', '23847486337290410', '23845611836710410', '23847138477030410', '23845520166910410', '23844367940690410', '23847574323680410', '23847574286990410', '23847486913080410', '23846997646280410', '23846994685100410']
-30/04/2021 07:09:44 PM - <module> - INFO - 
+03/05/2021 05:42:14 PM - <module> - INFO - ---------------Step 14 - Get Pixel ID---------------
+03/05/2021 05:42:14 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=pixels
+03/05/2021 05:42:14 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:14 PM - <module> - DEBUG - Pixel ids are: ['706589963501348', '1055813604760341', '571628820037566', '380740899476965']
 
----------------Step 8 - Post experiment setup campaign details---------------
-30/04/2021 07:09:44 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/create/
-30/04/2021 07:09:44 PM - <module> - INFO - The data that is sent to post API are, Campaign Name = Traffic1, Daily Budget = 1111, Ad set Start Time = 2021-06-27T20:16:59+05:30 Page id = 107973334116438 and Page name is = Aditya's Business Account
-30/04/2021 07:09:45 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:45 PM - <module> - INFO - Status of Experiment setup: Created
-30/04/2021 07:09:45 PM - <module> - INFO - Experiment setup id is: 1179
-30/04/2021 07:09:45 PM - <module> - INFO - 
 
----------------Step 9 - Get experiment setup---------------
-30/04/2021 07:09:45 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1179/
-30/04/2021 07:09:46 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:46 PM - <module> - INFO - 
+03/05/2021 05:42:14 PM - <module> - INFO - ---------------Step 15 - Post the creative---------------
+03/05/2021 05:42:14 PM - <module> - DEBUG - Post the creative: /creative/
+03/05/2021 05:42:15 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:15 PM - <module> - DEBUG - The creative ID is: 1135
 
----------------Step 10 - Update experiment setup---------------
-30/04/2021 07:09:46 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1179/
-30/04/2021 07:09:46 PM - <module> - INFO - Update the experiment setup with the following details: Min age = 30and Max age = 40
-30/04/2021 07:09:46 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:46 PM - <module> - INFO - The status of the updated experiment setup is : Updated
-30/04/2021 07:09:46 PM - <module> - INFO - 
 
----------------Step 11 - Get creative---------------
-30/04/2021 07:09:46 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1179/creative/
-30/04/2021 07:09:46 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:46 PM - <module> - INFO - 
+03/05/2021 05:42:15 PM - <module> - INFO - ---------------Step 11 - Get creative---------------
+03/05/2021 05:42:15 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1190/creative/
+03/05/2021 05:42:15 PM - <module> - DEBUG - Login error status: False
 
----------------Step 12 - Get creative files---------------
-30/04/2021 07:09:46 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/creative_files/
-30/04/2021 07:09:47 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:47 PM - <module> - INFO - 
 
----------------Step 13 - Get creative template files---------------
-30/04/2021 07:09:47 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/creative_templates/
-30/04/2021 07:09:47 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:47 PM - <module> - INFO - 
+03/05/2021 05:42:15 PM - <module> - INFO - ---------------Step 16 - Get the creative---------------
 
----------------Step 14 - Get Pixel ID---------------
-30/04/2021 07:09:47 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/assets/?fields=pixels
-30/04/2021 07:09:47 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:47 PM - <module> - INFO - Pixel ids are: ['706589963501348', '1055813604760341', '571628820037566', '380740899476965']
-30/04/2021 07:09:47 PM - <module> - INFO - 
 
----------------Step 15 - Post the creative---------------
-30/04/2021 07:09:47 PM - <module> - INFO - Post the creative: /creative/
-30/04/2021 07:09:48 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:48 PM - <module> - INFO - The creative ID is: 1125
-30/04/2021 07:09:48 PM - <module> - INFO - 
+03/05/2021 05:42:15 PM - <module> - INFO - ---------------Step 17 - Get storyname---------------
+03/05/2021 05:42:15 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1190/?storyname=true
+03/05/2021 05:42:15 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:15 PM - <module> - DEBUG - Story ID is: AQ-E:M:T:-TEST-N-BRD--0521-    1190
 
----------------Step 11 - Get creative---------------
-30/04/2021 07:09:48 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1179/creative/
-30/04/2021 07:09:49 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:49 PM - <module> - INFO - 
 
----------------Step 16 - Get the creative---------------
-30/04/2021 07:09:49 PM - <module> - INFO - 
+03/05/2021 05:42:15 PM - <module> - INFO - ---------------Step 18 - Publish request---------------
+03/05/2021 05:42:15 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1190/publish_request/new/
+03/05/2021 05:42:22 PM - <module> - DEBUG - Login error status: False
+03/05/2021 05:42:22 PM - <module> - DEBUG - Status of the API request is: requested
 
----------------Step 17 - Get storyname---------------
-30/04/2021 07:09:49 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/1179/?storyname=true
-30/04/2021 07:09:49 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:49 PM - <module> - INFO - Story ID is: AQ-E:M:T:-TEST-N-BRD--0421-    1179
-30/04/2021 07:09:49 PM - <module> - INFO - 
 
----------------Step 18 - Publish request---------------
-30/04/2021 07:09:49 PM - <module> - INFO - URL is set to: https://report-staging.aiquire.com/api/api/experiment_setup/clients/122/adaccount/112/experiment_setup/1179/publish_request/new/
-30/04/2021 07:09:54 PM - <module> - INFO - Login error status: False
-30/04/2021 07:09:54 PM - <module> - INFO - Status of the API request is: requested
