@@ -1,9 +1,9 @@
 # Author : Aditi Mantri
 
- Feature: Traffic end to end API with lowest cost
+ Feature: Conversion end to end API with lowest cost
 
 
-    @traffic
+    @conversion
     Scenario Outline: Step 1 - Login
       Given the URL and the login credentials <login> and <password>
       When the Login postAPI is executed
@@ -17,7 +17,7 @@
  #         |aditi.mantri@pyxispm.com|123456|
 
 
-    @traffic
+    @conversion
     Scenario Outline: Step 2 - Get clients associated with the logged in user
       Given the Authorization
       When the Clients GetAPI is executed
@@ -28,7 +28,7 @@
           |TestClient  |
 
 
-    @traffic
+    @conversion
     Scenario Outline: Step 3 - Get mpadaccounts data with logged in user
       Given the token, client id and mpadaccounts endpoint
       When mpadaccount GetAPI is executed
@@ -39,7 +39,7 @@
         |Test Account|
 
 
-    @traffic
+    @conversion
     Scenario: Step 4 - Get Campaign Setup Form Config
       Given the token and getCampaignSetupFormConfig endpoint
       When getCampaignSetupFormConfig GetAPI is executed
@@ -47,7 +47,7 @@
       Then save the config file
 
 
-    @traffic
+    @conversion
     Scenario: Step 5 - Get pages
       Given the token, client id, adaccount id and pages endpoint
       When Pages GetAPI is executed
@@ -55,7 +55,7 @@
       Then capture page ids when accessible is true
 
 
-    @traffic
+    @conversion
     Scenario: Step 6 - Get Instagram account
       Given the token, client id, adaccount id and adaccounts endpoint
       When adaccount GetAPI is executed
@@ -63,7 +63,7 @@
       Then capture adaccount ids when accessible is true
 
 
-    @traffic
+    @conversion
     Scenario: Step 7 - Get Custom Audience
       Given the token, client id, adaccount id and CustomAudience endpoint
       When CustomAudience GetAPI is executed
@@ -71,21 +71,28 @@
       Then capture custom audience id
 
 
+    @conversion
+    Scenario: Step 7 - Get Pixels
+      Given the client id and the getPixel endpoint
+      When getPixel getAPI is executed
+      And the error response from getPixel is false
+      Then store the pixel id if accessible is true
 
-   @traffic
-   Scenario Outline: Step 8 - Post experiment setup campaign details
+
+    @conversion
+    Scenario Outline: Step 8 - Post experiment setup campaign details
       Given the token, client account id, ad account id and createExperimentSetup endpoint
-      When the json body is sent with <CampaignName>, <DailyBudget>, <AdsetStartTime> for Traffic
-      And create ExperimentSetup postAPI is executed for Traffic
+      When the json body is sent with <CampaignName>, <DailyBudget>, <AdsetStartTime> for Conversion
+      And create ExperimentSetup postAPI is executed for Conversion
       Then verify if the error response is false
       And status of the experiment setup is Created
       Then capture the Experiment Setup id
         Examples:
-          |CampaignName    |DailyBudget|AdsetStartTime           |
-          |Traffic1        |1111       |2021-06-27T20:16:59+05:30|
+          |CampaignName|DailyBudget|AdsetStartTime           |
+          |Conversion  |100        |2021-07-27T20:16:59+05:30|
 
 
-    @traffic
+    @conversion
     Scenario: Step 9 - Get experiment setup
       Given the token, experiment setup ID and the getExperimentSetup endpoint
       When getExperimentSetup getAPI is executed
@@ -93,18 +100,18 @@
       Then save the getExperimentSetup response
 
 
-    @traffic
+    @conversion
     Scenario Outline: Step 10 - Update experiment setup
       Given the token,experiment setup ID and the updateExperimentSetup endpoint
-      When updateExperimentSetup putAPI is executed with maxAge=<maxAge> and minAge=<minAge> for Traffic
+      When updateExperimentSetup putAPI is executed with maxAge=<maxAge> and minAge=<minAge> for Conversion
       And the error response from updateExperimentSetup is false
       Then verify the status of the experiment setup is Updated
         Examples:
           |maxAge|minAge|
-          |40    |30    |
+          |44    |33    |
 
 
-    @traffic
+    @conversions
     Scenario: Step 11 - Get creative
       Given the client id, ad account id, experiment setup id and the getCreative endpoint
       When getCreative getAPI is executed
@@ -112,7 +119,7 @@
       Then verify that the data body is empty
 
 
-    @traffic
+    @conversion
     Scenario: Step 12 - Get creative files
       Given the client id and the getCreativeFiles endpoint
       When getCreativeFiles getAPI is executed
@@ -120,7 +127,7 @@
       Then store the response that we get from getCreativeFiles
 
 
-    @traffic
+    @conversion
     Scenario: Step 13 - Get creative template files
       Given the client id and the getCreativeTemplate endpoint
       When getCreativeTemplate getAPI is executed
@@ -128,7 +135,7 @@
       Then store the response that we get from getCreativeTemplate
 
 
-    @traffic
+    @conversion
     Scenario: Step 14 - Get Pixel ID
       Given the client id and the getPixel endpoint
       When getPixel getAPI is executed
@@ -136,15 +143,15 @@
       Then store the pixel id if accessible is true
 
 
-    @traffic
+    @conversion
     Scenario: Step 15 - Post the creative
       Given the client id, ad account id, experiment setup id and the postCreative endpoint
-      When postCreative postAPI is executed for Traffic
+      When postCreative postAPI is executed for Conversion
       And the error response from postCreative is false
       Then save the creative ID
 
 
-    @traffic
+    @conversion
     Scenario: Step 16 - Get the creative
       Given the client id, ad account id, experiment setup id and the getCreative endpoint
       When getCreative getAPI is executed
@@ -152,7 +159,7 @@
       Then store the json response from getCreative
 
 
-    @traffic
+    @conversion
     Scenario: Step 17 - Get storyname
       Given the experiment setup id and the storyname endpoint
       When getStoryName getAPI is executed
@@ -160,9 +167,17 @@
       Then save the story id
 
 
-   @smoke @traffic
-   Scenario: Step 18 - Publish request
+    @conversion
+    Scenario: Step 18 - Publish request
       Given client id, ad account id, experiment setup id and publish endpoint
-      When publish postAPI is executed for Traffic
+      When publish postAPI is executed for Conversion
       And the error response from publish is false and status is requested
       Then save the publish request id
+
+
+    @conversion
+    Scenario: Step 19 - Verify the status of the task on Upload pipeiline
+      Given experiment setup id and the endpoint
+      When getAPI is executed
+      And error status is 200
+      Then verify the status is SUCCESS

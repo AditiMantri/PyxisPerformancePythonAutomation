@@ -16,7 +16,7 @@ log.info("\n\n****************************NEW RUN****************************\n\
 
 @given('the URL and the login credentials {login} and {password}')
 def step_impl(context, login, password):
-    log.info("\n\n---------------Step 1 - Login---------------")
+    log.info("\n\n---------------Login---------------")
     try:
         context.url = getConfig()['API']['endpoint'] + apiResources.login
         context.payload = loginPayload(login, password)
@@ -71,7 +71,7 @@ def step_impl(context):
     try:
         context.token = context.response_json['data']['key']
         payload.setToken(context.token)
-        log.debug("Token: " + payload.getToken()+"\n\n")
+        log.debug("Token: " + payload.getToken() + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -81,7 +81,7 @@ def step_impl(context):
 
 @given('the Authorization')
 def step_impl(context):
-    log.info("---------------Step 2 - Get clients associated with the logged in user---------------")
+    log.info("---------------Get clients associated with the logged in user---------------")
     try:
         context.url = getConfig()['API']['endpoint'] + apiResources.clients
         context.Authorization = {'Authorization': payload.getToken()}
@@ -119,7 +119,7 @@ def step_impl(context, ClientName):
             if (result['name']) == ClientName:
                 payload.setClientID(result['id'])
                 log.debug("{}{}".format("Client Name is: ", result['name']))
-                log.debug("{}{}".format("Client ID is: ", payload.getClientID())+"\n\n")
+                log.debug("{}{}".format("Client ID is: ", payload.getClientID()) + "\n\n")
                 break
     except Exception as e:
         log.exception(str(e))
@@ -131,7 +131,7 @@ def step_impl(context, ClientName):
 
 @given(u'the token, client id and mpadaccounts endpoint')
 def step_impl(context):
-    log.info("---------------Step 3 - Get mpadaccounts data with logged in user---------------")
+    log.info("---------------Get mpadaccounts data with logged in user---------------")
     try:
         endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.mpadaccounts)
         context.url = getConfig()['API']['endpoint'] + endpoint
@@ -170,7 +170,7 @@ def step_impl(context, adaccountName):
             if result['name'] == adaccountName:
                 payload.setAdaccountID(result['id'])
                 log.debug("{}{}".format("Ad account name", result['name']))
-                log.debug("{}{}".format("Ad account ID: ", payload.getAdaccountID())+"\n\n")
+                log.debug("{}{}".format("Ad account ID: ", payload.getAdaccountID()) + "\n\n")
                 break
     except Exception as e:
         log.exception(str(e))
@@ -182,7 +182,7 @@ def step_impl(context, adaccountName):
 
 @given(u'the token and getCampaignSetupFormConfig endpoint')
 def step_impl(context):
-    log.info("---------------Step 4 - Get Campaign Setup Form Config---------------")
+    log.info("---------------Get Campaign Setup Form Config---------------")
     try:
         context.url = getConfig()['API']['endpoint'] + apiResources.getCampaignSetupFormConfig
         context.Authorization = {'Authorization': payload.getToken()}
@@ -208,7 +208,7 @@ def step_impl(context):
     try:
         assert context.getCampaignSetupFormConfig_response_json['error'] == False
         log.debug("{}{}".format("Login error status: ",
-                                context.getCampaignSetupFormConfig_response_json['error'])+"\n\n")
+                                context.getCampaignSetupFormConfig_response_json['error']) + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -228,7 +228,7 @@ def step_impl(context):
 
 @given(u'the token, client id, adaccount id and pages endpoint')
 def step_impl(context):
-    log.info("---------------Step 5 - Get pages---------------")
+    log.info("---------------Get pages---------------")
     try:
         endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
                                        payload.getAdaccountID(), apiResources.pages)
@@ -269,7 +269,7 @@ def step_impl(context):
         for result in context.pages_response_json['data']:
             if not result['error'] and result['accessible'] == True:
                 values.append(result['value']['page_id'])
-        log.debug("{}{}".format('The page ids are ', values)+"\n\n")
+        log.debug("{}{}".format('The page ids are ', values) + "\n\n")
         payload.setPages(values)
     except Exception as e:
         log.exception(str(e))
@@ -281,7 +281,7 @@ def step_impl(context):
 
 @given(u'the token, client id, adaccount id and adaccounts endpoint')
 def step_impl(context):
-    log.info("---------------Step 6 - Get Instagram account---------------")
+    log.info("---------------Get Instagram account---------------")
     try:
         endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), '/adaccount/',
                                        payload.getAdaccountID(),
@@ -322,7 +322,7 @@ def step_impl(context):
         for result in context.instagram_response_json['data']:
             if not result['error'] and result['accessible'] == True:
                 values.append(result['value'])
-        log.debug("{}{}".format("The instagram account ids are ", values)+"\n\n")
+        log.debug("{}{}".format("The instagram account ids are ", values) + "\n\n")
         payload.setInstagramAccounts(values)
     except Exception as e:
         log.exception(str(e))
@@ -334,7 +334,7 @@ def step_impl(context):
 
 @given(u'the token, client id, adaccount id and CustomAudience endpoint')
 def step_impl(context):
-    log.info("---------------Step 7 - Get Custom Audience---------------")
+    log.info("---------------Get Custom Audience---------------")
     try:
         endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), '/adaccount/',
                                        payload.getAdaccountID(),
@@ -375,7 +375,7 @@ def step_impl(context):
         for result in context.customAudience_response_json['data']:
             values.append(result['value']['id'])
         payload.setAudienceID(values)
-        log.debug("{}{}".format("Audience ID is: ", payload.getAudienceID())+"\n\n")
+        log.debug("{}{}".format("Audience ID is: ", payload.getAudienceID()) + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -386,7 +386,7 @@ def step_impl(context):
 
 @given(u'the token, client account id, ad account id and createExperimentSetup endpoint')
 def step_impl(context):
-    log.info("---------------Step 8 - Post experiment setup campaign details---------------")
+    log.info("---------------Post experiment setup campaign details---------------")
     try:
         endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), '/adaccount/',
                                        payload.getAdaccountID(),
@@ -439,6 +439,26 @@ def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
         raise e
 
 
+@when(u'the json body is sent with {CampaignName}, {DailyBudget}, {AdsetStartTime} for Conversion')
+def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
+    try:
+        page = payload.getPages()
+        randomint = random.randint(1, len(page))
+        val = page[randomint - 1]
+        context.conversion_json_body = payload.setConversionBody(CampaignName, DailyBudget, AdsetStartTime, val)
+        pagejson = getPagejson()
+        for result in pagejson['data']:
+            if result['value']['page_id'] == val:
+                pageName = result['label']
+                break
+        log.debug("The data that is sent to post API are, Campaign Name = " + CampaignName + ", Daily Budget = " +
+                  str(DailyBudget) + ", Ad set Start Time = " + AdsetStartTime + " Page id = " + str(val) +
+                  " and Page name is = " + pageName)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
 @when(u'create ExperimentSetup postAPI is executed for Traffic')
 def step_impl(context):
     try:
@@ -457,6 +477,18 @@ def step_impl(context):
         context.experiment_setup = requests.post(url=context.url,
                                                  headers=context.Authorization,
                                                  json=context.leadgen_body)
+        context.experiment_setup_json = context.experiment_setup.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'create ExperimentSetup postAPI is executed for Conversion')
+def step_impl(context):
+    try:
+        context.experiment_setup = requests.post(url=context.url,
+                                                 headers=context.Authorization,
+                                                 json=context.conversion_json_body)
         context.experiment_setup_json = context.experiment_setup.json()
     except Exception as e:
         log.exception(str(e))
@@ -487,7 +519,7 @@ def step_impl(context):
 def step_impl(context):
     try:
         payload.saveExperimentSetupID(context.experiment_setup_json['data']['id'])
-        log.debug("Experiment setup id is: " + str(payload.getExperimentSetupID())+"\n\n")
+        log.debug("Experiment setup id is: " + str(payload.getExperimentSetupID()) + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -498,7 +530,7 @@ def step_impl(context):
 
 @given(u'the token, experiment setup ID and the getExperimentSetup endpoint')
 def step_impl(context):
-    log.info("---------------Step 9 - Get experiment setup---------------")
+    log.info("---------------Get experiment setup---------------")
     try:
         endpoint = "{}{}{}".format(apiResources.getExpSetup, payload.getExperimentSetupID(), '/')
         context.url = getConfig()['API']['endpoint'] + endpoint
@@ -525,7 +557,7 @@ def step_impl(context):
     try:
         assert context.getExperimentSetup_response_json['error'] == False
         log.debug("{}{}".format("Login error status: ", context.getExperimentSetup_response_json['error'])
-                  +"\n\n")
+                  + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -544,7 +576,7 @@ def step_impl(context):
 
 @given(u'the token,experiment setup ID and the updateExperimentSetup endpoint')
 def step_impl(context):
-    log.info("---------------Step 10 - Update experiment setup---------------")
+    log.info("---------------Update experiment setup---------------")
     try:
         endpoint = "{}{}{}".format(apiResources.getExpSetup, payload.getExperimentSetupID(), '/')
         context.url = getConfig()['API']['endpoint'] + endpoint
@@ -583,6 +615,20 @@ def step_impl(context, maxAge, minAge):
         raise e
 
 
+@when(u'updateExperimentSetup putAPI is executed with maxAge={maxAge} and minAge={minAge} for Conversion')
+def step_impl(context, maxAge, minAge):
+    try:
+        context.updateExperimentSetup_response = requests.put(context.url,
+                                                              headers=context.Authorization,
+                                                              json=payload.updateConversionBody(maxAge, minAge))
+        context.updateExperimentSetup_response_json = context.updateExperimentSetup_response.json()
+        log.debug("Update the experiment setup with the following details: Min age = "
+                  + str(minAge) + "and Max age = " + str(maxAge))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
 @when(u'the error response from updateExperimentSetup is false')
 def step_impl(context):
     try:
@@ -598,7 +644,7 @@ def step_impl(context):
     try:
         assert context.updateExperimentSetup_response_json['data']['status'] == 'Updated'
         log.debug("The status of the updated experiment setup is : "
-                  + context.updateExperimentSetup_response_json['data']['status']+"\n\n")
+                  + context.updateExperimentSetup_response_json['data']['status'] + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -608,7 +654,7 @@ def step_impl(context):
 
 @given(u'the client id, ad account id, experiment setup id and the getCreative endpoint')
 def step_impl(context):
-    log.info("---------------Step 11 - Get creative---------------")
+    log.info("---------------Get creative---------------")
     try:
         endpoint = "{}{}{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
                                            payload.getAdaccountID(), apiResources.experimentSetup,
@@ -636,7 +682,7 @@ def step_impl(context):
 def step_impl(context):
     try:
         assert context.getCreative_response_json['error'] == False
-        log.debug("{}{}".format("Login error status: ", context.getCreative_response_json['error'])+ "\n\n")
+        log.debug("{}{}".format("Login error status: ", context.getCreative_response_json['error']) + "\n\n")
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -655,7 +701,7 @@ def step_impl(context):
 
 @given(u'the client id and the getCreativeFiles endpoint')
 def step_impl(context):
-    log.info("---------------Step 12 - Get creative files---------------")
+    log.info("---------------Get creative files---------------")
     try:
         endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.getCreativeFiles)
         context.url = getConfig()['API']['endpoint'] + endpoint
@@ -702,7 +748,7 @@ def step_impl(context):
 
 @given(u'the client id and the getCreativeTemplate endpoint')
 def step_impl(context):
-    log.info("---------------Step 13 - Get creative template files---------------")
+    log.info("---------------Get creative template files---------------")
     try:
         endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(),
                                    apiResources.getCreativeTemplates)
@@ -750,7 +796,7 @@ def step_impl(context):
 
 @given(u'the client id and the getPixel endpoint')
 def step_impl(context):
-    log.info("---------------Step 14 - Get Pixel ID---------------")
+    log.info("---------------Get Pixel ID---------------")
     try:
         endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
                                        payload.getAdaccountID(), apiResources.getPixelIDs)
@@ -801,7 +847,7 @@ def step_impl(context):
 
 @given(u'the client id, ad account id, experiment setup id and the postCreative endpoint')
 def step_impl(context):
-    log.info("---------------Step 15 - Post the creative---------------")
+    log.info("---------------Post the creative---------------")
     try:
         endpoint = "{}{}{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
                                            payload.getAdaccountID(), apiResources.experimentSetup,
@@ -839,6 +885,19 @@ def step_impl(context):
         raise e
 
 
+
+@when(u'postCreative postAPI is executed for Conversion')
+def step_impl(context):
+    try:
+        context.postCreative_response = requests.post(context.url,
+                                                      headers=context.Authorization,
+                                                      json=payload.getPostCreativeBodyForConversion())
+        context.postCreative_response_json = context.postCreative_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
 @when(u'the error response from postCreative is false')
 def step_impl(context):
     try:
@@ -864,7 +923,7 @@ def step_impl(context):
 
 @then(u'store the json response from getCreative')
 def step_impl(context):
-    log.info("---------------Step 16 - Get the creative---------------\n\n")
+    log.info("---------------Get the creative---------------\n\n")
     try:
         payload.saveCreatives(context.getCreative_response_json)
     except Exception as e:
@@ -877,7 +936,7 @@ def step_impl(context):
 
 @given(u'the experiment setup id and the storyname endpoint')
 def step_impl(context):
-    log.info("---------------Step 17 - Get storyname---------------")
+    log.info("---------------Get storyname---------------")
     try:
         endpoint = "{}{}{}".format(apiResources.getExpSetup, payload.getExperimentSetupID(), apiResources.getStoryName)
         context.url = getConfig()['API']['endpoint'] + endpoint
@@ -924,7 +983,7 @@ def step_impl(context):
 
 @given(u'client id, ad account id, experiment setup id and publish endpoint')
 def step_impl(context):
-    log.info("---------------Step 18 - Publish request---------------")
+    log.info("---------------Publish request---------------")
     try:
         endpoint = "{}{}{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), apiResources.getAdaccount,
                                            payload.getAdaccountID(), apiResources.experimentSetup,
@@ -961,6 +1020,18 @@ def step_impl(context):
         raise e
 
 
+@when(u'publish postAPI is executed for Conversion')
+def step_impl(context):
+    try:
+        context.publish_response = requests.post(context.url,
+                                                 headers=context.Authorization,
+                                                 json=payload.getPublishBodyConversion())
+        context.publish_response_json = context.publish_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
 @when(u'the error response from publish is false and status is requested')
 def step_impl(context):
     try:
@@ -987,7 +1058,7 @@ def step_impl(context):
 
 @given(u'experiment setup id and the endpoint')
 def step_impl(context):
-    log.info("---------------Step 19 - AdsPipeline---------------")
+    log.info("---------------AdsPipeline---------------")
     try:
         context.url = getConfig()['API']['adspipeline'] + apiResources.publishStatus
         log.debug(f"URL is set to: " + context.url)
