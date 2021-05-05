@@ -459,13 +459,21 @@ def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
         raise e
 
 
-@when(u'create ExperimentSetup postAPI is executed for Traffic')
-def step_impl(context):
+@when(u'the json body is sent with {CampaignName}, {DailyBudget}, {AdsetStartTime} for AppInstall')
+def step_impl(context, CampaignName, DailyBudget, AdsetStartTime):
     try:
-        context.experiment_setup = requests.post(url=context.url,
-                                                 headers=context.Authorization,
-                                                 json=context.traffic_json_body)
-        context.experiment_setup_json = context.experiment_setup.json()
+        page = payload.getPages()
+        randomint = random.randint(1, len(page))
+        val = page[randomint - 1]
+        context.AppInstall_json_body = payload.setAppInstallBody(CampaignName, DailyBudget, AdsetStartTime, val)
+        pagejson = getPagejson()
+        for result in pagejson['data']:
+            if result['value']['page_id'] == val:
+                pageName = result['label']
+                break
+        log.debug("The data that is sent to post API are, Campaign Name = " + CampaignName + ", Daily Budget = " +
+                  str(DailyBudget) + ", Ad set Start Time = " + AdsetStartTime + " Page id = " + str(val) +
+                  " and Page name is = " + pageName)
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -490,6 +498,27 @@ def step_impl(context):
                                                  headers=context.Authorization,
                                                  json=context.conversion_json_body)
         context.experiment_setup_json = context.experiment_setup.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'create ExperimentSetup postAPI is executed for Traffic')
+def step_impl(context):
+    context.experiment_setup = requests.post(url=context.url,
+                                             headers=context.Authorization,
+                                             json=context.traffic_json_body)
+    context.experiment_setup_json = context.experiment_setup.json()
+
+
+@when(u'create ExperimentSetup postAPI is executed for Appinstall')
+def step_impl(context):
+    try:
+        context.experiment_setup = requests.post(url=context.url,
+                                                 headers=context.Authorization,
+                                                 json=context.AppInstall_json_body)
+        context.experiment_setup_json = context.experiment_setup.json()
+        log.info(context.experiment_setup_json)
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -624,6 +653,18 @@ def step_impl(context, maxAge, minAge):
         context.updateExperimentSetup_response_json = context.updateExperimentSetup_response.json()
         log.debug("Update the experiment setup with the following details: Min age = "
                   + str(minAge) + "and Max age = " + str(maxAge))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'updateExperimentSetup putAPI is executed with maxAge={maxAge} and minAge={minAge} for Appinstall')
+def step_impl(context, maxAge, minAge):
+    try:
+        context.updateExperimentSetup_response = requests.put(context.url,
+                                                              headers=context.Authorization,
+                                                              json=payload.updateAppInstallBody(maxAge, minAge))
+        context.updateExperimentSetup_response_json = context.updateExperimentSetup_response.json()
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -885,13 +926,24 @@ def step_impl(context):
         raise e
 
 
-
 @when(u'postCreative postAPI is executed for Conversion')
 def step_impl(context):
     try:
         context.postCreative_response = requests.post(context.url,
                                                       headers=context.Authorization,
                                                       json=payload.getPostCreativeBodyForConversion())
+        context.postCreative_response_json = context.postCreative_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'postCreative postAPI is executed for AppInstall')
+def step_impl(context):
+    try:
+        context.postCreative_response = requests.post(context.url,
+                                                      headers=context.Authorization,
+                                                      json=payload.getPostCreativeBodyForAppinstall())
         context.postCreative_response_json = context.postCreative_response.json()
     except Exception as e:
         log.exception(str(e))
@@ -1027,6 +1079,19 @@ def step_impl(context):
                                                  headers=context.Authorization,
                                                  json=payload.getPublishBodyConversion())
         context.publish_response_json = context.publish_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'publish postAPI is executed for AppInstall')
+def step_impl(context):
+    try:
+        context.publish_response = requests.post(context.url,
+                                                 headers=context.Authorization,
+                                                 json=payload.getPublishBodyAppInstall())
+        context.publish_response_json = context.publish_response.json()
+        log.info(context.publish_response_json)
     except Exception as e:
         log.exception(str(e))
         raise e

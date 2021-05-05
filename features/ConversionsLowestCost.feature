@@ -89,7 +89,7 @@
       Then capture the Experiment Setup id
         Examples:
           |CampaignName|DailyBudget|AdsetStartTime           |
-          |Conversion  |100        |2021-07-27T20:16:59+05:30|
+          |ConversionSanityAutomation  |111        |2021-07-27T20:16:59+05:30|
 
 
     @conversion
@@ -108,7 +108,7 @@
       Then verify the status of the experiment setup is Updated
         Examples:
           |maxAge|minAge|
-          |44    |33    |
+          |55    |54    |
 
 
     @conversions
