@@ -1,5 +1,8 @@
 import json
 import random
+import time
+import threading
+from asyncio import wait
 
 import payload
 from behave import *
@@ -1137,6 +1140,15 @@ def step_impl(context):
     try:
         context.status = requests.get(context.url)
         context.status_json = context.status.json()
+        for result in context.status_json['data']['tasks']:
+            if result['storyId'] == payload.getStoryID():
+                break
+        context.statusValue = result['status']
+        while context.statusValue == "PENDING" or context.statusValue == "PROCESSING":
+            time.sleep(30)
+            context.status = requests.get(context.url)
+            context.status_json = context.status.json()
+            break
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -1157,12 +1169,11 @@ def step_impl(context):
     try:
         statusCode = context.status_json['statusCode']
         assert statusCode == 200
-        for result in context.status_json['data']['tasks']:
-            if result['storyId'] == payload.getStoryID():
-                break
-        assert result['status'] == "PENDING"
-        log.info("The experiment setup is created successfully on Aiqurie dashboard and "
-                 "has been pushed to Upload pipeline \n")
+        if context.statusValue == "SUCCESS":
+            log.info("The experiment setup successfully published to FB \n")
+        else:
+            assert context.statusValue == "SUCCESS"
+            log.info("FAILURE IN ADS PIPELINE - please check adspipeline for more information \n")
     except Exception as e:
         log.exception(str(e))
         raise e
