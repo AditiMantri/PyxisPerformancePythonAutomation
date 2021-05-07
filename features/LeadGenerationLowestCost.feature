@@ -81,7 +81,7 @@
       Then capture the Experiment Setup id
         Examples:
           |CampaignName|DailyBudget|AdsetStartTime           |
-          |LeadSanityAutomation       |111        |2021-07-27T20:16:59+05:30|
+          |test     |1111        |2022-07-27T20:16:59+05:30|
 
 
     @leadgen
@@ -136,11 +136,15 @@
 
 
     @leadgen
-    Scenario: Step 15 - Post the creative
+    Scenario Outline: Step 15 - Post the creative
       Given the client id, ad account id, experiment setup id and the postCreative endpoint
-      When postCreative postAPI is executed for Leadgen
+      When postCreative postAPI is executed for Leadgen of <Type>
       And the error response from postCreative is false
       Then save the creative ID
+      Examples:
+      # Examples: can be either Image, Video or Carousel
+        |Type|
+        |Carousel|
 
 
     @leadgen

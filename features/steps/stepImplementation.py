@@ -904,12 +904,13 @@ def step_impl(context):
         raise e
 
 
-@when(u'postCreative postAPI is executed for Leadgen')
-def step_impl(context):
+@when(u'postCreative postAPI is executed for Leadgen of {Type}')
+def step_impl(context, Type):
+    setCreativeType(Type)
     try:
         context.postCreative_response = requests.post(context.url,
                                                       headers=context.Authorization,
-                                                      json=payload.getPostCreativeBodyForLeadgen())
+                                                      json=payload.getPostCreativeBodyForLeadgen(Type))
         context.postCreative_response_json = context.postCreative_response.json()
         log.debug("Post the creative: " + str(apiResources.getCreative))
     except Exception as e:
@@ -1056,7 +1057,7 @@ def step_impl(context):
     try:
         context.publish_response = requests.post(context.url,
                                                  headers=context.Authorization,
-                                                 json=payload.getPublishBodyLeadgen())
+                                                 json=payload.getPublishBodyLeadgen(getCreativeType()))
         context.publish_response_json = context.publish_response.json()
     except Exception as e:
         log.exception(str(e))
@@ -1103,6 +1104,7 @@ def step_impl(context):
 @when(u'the error response from publish is false and status is requested')
 def step_impl(context):
     try:
+        print(context.publish_response_json)
         assert context.publish_response_json['error'] == False
         assert context.publish_response_json['data']['status'] == 'requested'
         log.debug("{}{}".format("Login error status: ", context.publish_response_json['error']))
@@ -1148,7 +1150,13 @@ def step_impl(context):
             time.sleep(30)
             context.status = requests.get(context.url)
             context.status_json = context.status.json()
-            break
+            for result in context.status_json['data']['tasks']:
+                if result['storyId'] == payload.getStoryID():
+                    break
+            context.statusValue = result['status']
+            if context.statusValue == "SUCCESS" or context.statusValue == "FAILED":
+                break
+
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -1170,8 +1178,10 @@ def step_impl(context):
         statusCode = context.status_json['statusCode']
         assert statusCode == 200
         if context.statusValue == "SUCCESS":
+            log.info("Status: "+context.statusValue)
             log.info("The experiment setup successfully published to FB \n")
         else:
+            log.info("Status: "+context.statusValue)
             assert context.statusValue == "SUCCESS"
             log.info("FAILURE IN ADS PIPELINE - please check adspipeline for more information \n")
     except Exception as e:
