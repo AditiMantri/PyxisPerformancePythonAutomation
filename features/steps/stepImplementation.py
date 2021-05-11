@@ -918,12 +918,13 @@ def step_impl(context, Type):
         raise e
 
 
-@when(u'postCreative postAPI is executed for Traffic')
-def step_impl(context):
+@when(u'postCreative postAPI is executed for Traffic of {Type}')
+def step_impl(context, Type):
+    setCreativeType(Type)
     try:
         context.postCreative_response = requests.post(context.url,
                                                       headers=context.Authorization,
-                                                      json=payload.getPostCreativeBodyForTraffic())
+                                                      json=payload.getPostCreativeBodyForTraffic(Type))
         context.postCreative_response_json = context.postCreative_response.json()
     except Exception as e:
         log.exception(str(e))
@@ -1069,7 +1070,7 @@ def step_impl(context):
     try:
         context.publish_response = requests.post(context.url,
                                                  headers=context.Authorization,
-                                                 json=payload.getPublishBodyTraffic())
+                                                 json=payload.getPublishBodyTraffic(getCreativeType()))
         context.publish_response_json = context.publish_response.json()
     except Exception as e:
         log.exception(str(e))

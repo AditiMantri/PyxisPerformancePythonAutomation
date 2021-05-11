@@ -137,14 +137,18 @@
 
 
     @traffic
-    Scenario: Step 15 - Post the creative
+    Scenario Outline: Step 15 - Post the creative
       Given the client id, ad account id, experiment setup id and the postCreative endpoint
-      When postCreative postAPI is executed for Traffic
+      When postCreative postAPI is executed for Traffic of <Type>
       And the error response from postCreative is false
       Then save the creative ID
+      Examples:
+      # Examples: can be either Image, Video or Carousel
+        | Type |
+        |Carousel |
 
 
-    @traffic
+   @traffic
     Scenario: Step 16 - Get the creative
       Given the client id, ad account id, experiment setup id and the getCreative endpoint
       When getCreative getAPI is executed
@@ -160,9 +164,17 @@
       Then save the story id
 
 
-   @smoke @traffic
+   @traffic
    Scenario: Step 18 - Publish request
       Given client id, ad account id, experiment setup id and publish endpoint
       When publish postAPI is executed for Traffic
       And the error response from publish is false and status is requested
       Then save the publish request id
+
+
+    @traffic
+    Scenario: Step 19 - Verify the status of the task on Upload pipeiline
+      Given experiment setup id and the endpoint
+      When getAPI is executed
+      And error status is 200
+      Then verify the status is SUCCESS
