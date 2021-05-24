@@ -58,7 +58,7 @@
     @conversion
     Scenario: Step 6 - Get Instagram account
       Given the token, client id, adaccount id and adaccounts endpoint
-      When adaccount GetAPI is executed
+      When instagram account GetAPI is executed
       And the error response from Instagram accounts is false
       Then capture adaccount ids when accessible is true
 

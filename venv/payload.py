@@ -33,8 +33,8 @@ def getClientID():
 
 
 # Set the account id where the experiment setup is to be set
-def setAdaccountID(adaccountnID):
-    payload.adaccountID = adaccountnID
+def setAdaccountID(adaccountID):
+    payload.adaccountID = adaccountID
 
 
 # Get the account id
@@ -391,4 +391,20 @@ def setCreativeType(type):
 
 def getCreativeType():
     return payload.type
-# --------------------------------  --------------------------------
+
+# -------------------------------- LEAD GEN MEDIA PLAN --------------------------------
+
+def setClientData(client_json):
+    payload.client_json = client_json
+
+
+def getClientData():
+    return payload.client_json
+
+
+def saveAdaccountsList(adaccounts):
+    payload.adaccounts = adaccounts
+
+
+def getAdaccountsList():
+    return payload.adaccounts

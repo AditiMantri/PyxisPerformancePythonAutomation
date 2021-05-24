@@ -115,6 +115,27 @@ def step_impl(context):
         raise e
 
 
+@then(u'extract the GetAPI response and store it')
+def step_impl(context):
+    try:
+        payload.setClientData(context.response_json)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify if the {ClientName} is linked to the logged in user')
+def step_impl(context, ClientName):
+    try:
+        for result in context.response_json['data']['clients']:
+            if ClientName in (result['name']):
+                log.debug("Client " + ClientName + " is linked to the logged in user")
+                break
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
 @then(u'store the client ID {ClientName}')
 def step_impl(context, ClientName):
     try:
@@ -129,7 +150,55 @@ def step_impl(context, ClientName):
         raise e
 
 
-# ----------------------Step3---------------------
+# ----------------------Step3.0---------------------
+
+
+@given(u'the token, client id and adaccounts endpoint')
+def step_impl(context):
+    log.info("---------------Get adaccounts data with logged in user---------------")
+    try:
+        endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.adaccounts)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'adaccount GetAPI is executed')
+def step_impl(context):
+    try:
+        context.adaccounts_response = requests.get(context.url,
+                                                   headers=context.Authorization)
+        context.adaccounts_response_json = context.adaccounts_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from adaccount is false')
+def step_impl(context):
+    try:
+        assert context.adaccounts_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.adaccounts_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'store the adaccounts response')
+def step_impl(context):
+    try:
+        payload.saveAdaccountsList(context.adaccounts_response_json['data'])
+        log.debug(payload.getAdaccountsList())
+        log.debug("\n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step3.1---------------------
 
 
 @given(u'the token, client id and mpadaccounts endpoint')
@@ -174,6 +243,21 @@ def step_impl(context, adaccountName):
                 payload.setAdaccountID(result['id'])
                 log.debug("{}{}".format("Ad account name", result['name']))
                 log.debug("{}{}".format("Ad account ID: ", payload.getAdaccountID()) + "\n\n")
+                break
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then('store the id of {adaccountName} if adaccount name is present in the adaccount list')
+def step_impl(context, adaccountName):
+    try:
+        for result in context.mpadaccounts_response_json['data']['adaccounts']:
+            if result['name'] == adaccountName:
+                payload.setAdaccountID(result['id'])
+                log.debug("{}{}".format("Ad account name", result['name']))
+                log.debug("{}{}".format("Ad account ID: ", payload.getAdaccountID()))
+                log.debug("\n\n")
                 break
     except Exception as e:
         log.exception(str(e))
@@ -226,7 +310,75 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step5---------------------
+# ----------------------Step5.0---------------------
+
+
+@given(u'the token, adaccount id and getStatus endpoint')
+def step_impl(context):
+    log.info("---------------Get Status---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID(),
+                                     apiResources.getStatus)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'Status GetAPI is executed')
+def step_impl(context):
+    try:
+        context.status_response = requests.get(context.url,
+                                               headers=context.Authorization)
+        context.status_response_json = context.status_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from status is false')
+def step_impl(context):
+    try:
+        assert context.status_response_json['error'] == False
+        log.debug("{}{}".format("Status error status: ", context.status_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that the sync_status is DONE')
+def step_impl(context):
+    try:
+        if context.status_response_json['data']['status']['sync_status'] == 'DONE':
+            log.debug("Sync is completed from the backend")
+        else:
+            log.debug("The sync is in progress, cannot proceed further!")
+            assert context.status_response_json['data']['status']['sync_status'] == 'DONE'
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'last_30d_available and first_30d_available are both true')
+def step_impl(context):
+    try:
+        if context.status_response_json['data']['status']['last_30d_available'] == 'true':
+            log.debug("last 30d" + context.status_response_json['data']['status']['last_30d_available'])
+            if context.status_response_json['data']['status']['first_30d_available'] == 'true':
+                log.debug("first 30d" + context.status_response_json['data']['status']['first_30d_available'])
+                log.debug("Past data is available")
+        else:
+            log.debug("Past data is not available")
+            assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
+            assert context.status_response_json['data']['status']['first_30d_available'] == 'true'
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step5.1---------------------
 
 
 @given(u'the token, client id, adaccount id and pages endpoint')
@@ -297,7 +449,7 @@ def step_impl(context):
         raise e
 
 
-@when(u'adaccount GetAPI is executed')
+@when(u'instagram account GetAPI is executed')
 def step_impl(context):
     try:
         context.instagram_response = requests.get(context.url,
@@ -1179,10 +1331,10 @@ def step_impl(context):
         statusCode = context.status_json['statusCode']
         assert statusCode == 200
         if context.statusValue == "SUCCESS":
-            log.info("Status: "+context.statusValue)
+            log.info("Status: " + context.statusValue)
             log.info("The experiment setup successfully published to FB \n")
         else:
-            log.info("Status: "+context.statusValue)
+            log.info("Status: " + context.statusValue)
             assert context.statusValue == "SUCCESS"
             log.info("FAILURE IN ADS PIPELINE - please check adspipeline for more information \n")
     except Exception as e:
