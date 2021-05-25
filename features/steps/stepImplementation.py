@@ -191,8 +191,7 @@ def step_impl(context):
 def step_impl(context):
     try:
         payload.saveAdaccountsList(context.adaccounts_response_json['data'])
-        log.debug(payload.getAdaccountsList())
-        log.debug("\n\n")
+        log.debug("{}{}".format(payload.getAdaccountsList(), "\n\n"))
     except Exception as e:
         log.exception(str(e))
         raise e
@@ -256,8 +255,7 @@ def step_impl(context, adaccountName):
             if result['name'] == adaccountName:
                 payload.setAdaccountID(result['id'])
                 log.debug("{}{}".format("Ad account name", result['name']))
-                log.debug("{}{}".format("Ad account ID: ", payload.getAdaccountID()))
-                log.debug("\n\n")
+                log.debug("{}{}{}".format("Ad account ID: ", payload.getAdaccountID(), "\n\n"))
                 break
     except Exception as e:
         log.exception(str(e))
@@ -364,15 +362,17 @@ def step_impl(context):
 @then(u'last_30d_available and first_30d_available are both true')
 def step_impl(context):
     try:
-        if context.status_response_json['data']['status']['last_30d_available'] == 'true':
-            log.debug("last 30d" + context.status_response_json['data']['status']['last_30d_available'])
-            if context.status_response_json['data']['status']['first_30d_available'] == 'true':
-                log.debug("first 30d" + context.status_response_json['data']['status']['first_30d_available'])
+        if context.status_response_json['data']['status']['first_30d_available']:
+            log.debug(
+                "{}{}".format("last 30d - ", context.status_response_json['data']['status']['first_30d_available']))
+            if context.status_response_json['data']['status']['last_30d_available']:
+                log.debug(
+                    "{}{}".format("first 30d - ", context.status_response_json['data']['status']['last_30d_available']))
                 log.debug("Past data is available")
         else:
             log.debug("Past data is not available")
-            assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
-            assert context.status_response_json['data']['status']['first_30d_available'] == 'true'
+            assert context.status_response_json['data']['status']['first_30d_available'] == True
+            assert context.status_response_json['data']['status']['last_30d_available'] == True
     except Exception as e:
         log.exception(str(e))
         raise e

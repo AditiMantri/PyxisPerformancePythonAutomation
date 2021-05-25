@@ -42,7 +42,7 @@ Feature: LeadGen end to end API for Media Plan
     Then store the id of <adaccountName> if adaccount name is present in the adaccount list
     Examples:
       |adaccountName|
-      |Test Account|
+      |AIQ HDFCBANK -2|
 
 
     @leadGenMediaPlan

@@ -1,364 +1,43 @@
-24/05/2021 05:21:33 PM - <module> - INFO - 
+25/05/2021 10:42:02 AM - <module> - INFO - 
 
 ****************************NEW RUN****************************
 
 
-24/05/2021 05:21:33 PM - <module> - INFO - 
+25/05/2021 10:42:02 AM - <module> - INFO - 
 
 ---------------Login---------------
-24/05/2021 05:21:33 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 05:21:34 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0MzQ5NCwianRpIjoiNjUxNTJhNzYzZmNlNDBlMGE5ZTNlN2I3MWI4YmJkZmUiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.DGMBrPWe0QCHlGNeJ_zS3MkCiXYSVTuSMYutIYkyAfw', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODU3Mzk0LCJqdGkiOiIyMzNlOGNlN2U2MDE0YzhhOTY3NGFjODg4ZTczMTVlYSIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.NRfLidb3pG78VqDrTmA2lA2NtwuglwdTmBx9r4jfDzU'}}
-24/05/2021 05:21:34 PM - <module> - DEBUG - Login status: 200
-24/05/2021 05:21:34 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:21:34 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 05:21:34 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 05:21:34 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 05:21:43 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:21:43 PM - <module> - DEBUG - Client TestClient is linked to the logged in user
-24/05/2021 05:21:43 PM - <module> - DEBUG - Client Name is: TestClient
-24/05/2021 05:21:43 PM - <module> - DEBUG - Client ID is: 122
-
-
-24/05/2021 05:21:43 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 05:21:43 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/adaccounts/
-24/05/2021 05:21:43 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:21:43 PM - <module> - DEBUG - [{'id': 27, 'fb_id': '574305696464596', 'name': 'Swiggy Branding AIQ'}, {'id': 138, 'fb_id': '717101715308343', 'name': 'Norah1'}, {'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 123, 'fb_id': '564784734205612', 'name': 'Livspace New Aiquire'}, {'id': 88, 'fb_id': '615232432629272', 'name': 'BookMyShow AIQ'}, {'id': 118, 'fb_id': '358098655374094', 'name': 'Livspace Singapore AIQ - OC'}, {'id': 67, 'fb_id': '657690591496070', 'name': 'AIQ CA 2 - OC'}, {'id': 106, 'fb_id': '2638873359712307', 'name': "Aditya's Test account"}, {'id': 91, 'fb_id': '2007313182663542', 'name': 'Pictor8'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 96, 'fb_id': '344642406467086', 'name': 'Livspace: AIQ'}, {'id': 137, 'fb_id': '2316556345309051', 'name': 'Global Acquisition AIQ'}, {'id': 99, 'fb_id': '832687727072200', 'name': 'TESTAdAccount'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 94, 'fb_id': '169015874296497', 'name': 'Brandtrack'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 95, 'fb_id': '1423876994467799', 'name': 'MPL AIQ wl - OC'}, {'id': 93, 'fb_id': '1213081792370182', 'name': 'AIQ CA 4 - OC'}, {'id': 136, 'fb_id': '1778650425775237', 'name': 'Bharti AXA Health  Aiquire'}, {'id': 2, 'fb_id': '1021860081218139', 'name': 'AIQ HDFCBANK -2'}]
-24/05/2021 05:21:43 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:21:43 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 05:21:43 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-24/05/2021 05:22:05 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:22:05 PM - <module> - DEBUG - Ad account nameTest Account
-24/05/2021 05:22:05 PM - <module> - DEBUG - Ad account ID: 112
-24/05/2021 05:22:05 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:22:05 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 05:22:05 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/112/status/
-24/05/2021 05:22:05 PM - <module> - DEBUG - Status error status: False
-24/05/2021 05:22:05 PM - <module> - DEBUG - Sync is completed from the backend
-24/05/2021 05:22:05 PM - <module> - DEBUG - Past data is not available
-24/05/2021 05:22:05 PM - <module> - ERROR - 
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 372, in step_impl
-    assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
-AssertionError
-24/05/2021 05:26:44 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 05:26:44 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 05:26:44 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 05:26:45 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0MzgwNSwianRpIjoiMmE4YWEzMzEyMDIzNDBjNGJmOTZhYzBhOWQ0MDA3YjYiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.bMiXAwSSCQn9PMeZ-jdSh5W_fTEqRLmBgE9X7HFQ0C4', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODU3NzA1LCJqdGkiOiJjZjU1Zjc2M2Y2OTM0ZDFkYjQ1NTFlZGQzMDk0MWI2MCIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.kF0_PpGYoGbQE6l81zT1kpRuK1RjAzOGYpMxRDvRv0U'}}
-24/05/2021 05:26:45 PM - <module> - DEBUG - Login status: 200
-24/05/2021 05:26:45 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:26:45 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 05:26:45 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 05:26:45 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 05:26:52 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:26:52 PM - <module> - DEBUG - Client Brandtrack is linked to the logged in user
-24/05/2021 05:26:52 PM - <module> - DEBUG - Client Name is: Brandtrack
-24/05/2021 05:26:52 PM - <module> - DEBUG - Client ID is: 136
-
-
-24/05/2021 05:26:52 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 05:26:52 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/adaccounts/
-24/05/2021 05:26:53 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:26:53 PM - <module> - DEBUG - [{'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 100, 'fb_id': '738224729878901', 'name': 'MPL_Absentia'}, {'id': 117, 'fb_id': '502398030495312', 'name': 'AIQ - MPL Pro_CPP'}, {'id': 111, 'fb_id': '2589725237947169', 'name': 'Brandtrack AIQ - OC BM2'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 110, 'fb_id': '343748033303757', 'name': 'DBS AIQ - OC BM2'}, {'id': 92, 'fb_id': '303300246923901', 'name': 'Pictor7'}]
-24/05/2021 05:26:53 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:26:53 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 05:26:53 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/mpadaccounts/
-24/05/2021 05:26:55 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:26:55 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 05:26:55 PM - <module> - ERROR - module 'payload' has no attribute 'adaccountID'
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 320, in step_impl
-    endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID(),
-  File "c:\users\aditi mantri\pycharmprojects\pyxisperformancepythonautomation\venv\payload.py", line 42, in getAdaccountID
-    return payload.adaccountID;
-AttributeError: module 'payload' has no attribute 'adaccountID'
-24/05/2021 05:27:44 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 05:27:44 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 05:27:44 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 05:27:44 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0Mzg2NCwianRpIjoiNWFlNDk1OTgxOWY4NGRkMTg2ODYxNGEyNzFjOGViZTEiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.oGsuj_tpSkyxFQKNCoLouQM4IlqvPtqfA6JGs4kUwxA', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODU3NzY0LCJqdGkiOiIxNDJlM2M4MmM5ODQ0ZmExOTA4NjNiNWQzMDZiNDQ4MiIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.Nm6Qj8G3jLfwDjP0MrXBGOLzuBu9h9wVfyIso_6PdtM'}}
-24/05/2021 05:27:44 PM - <module> - DEBUG - Login status: 200
-24/05/2021 05:27:44 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:27:44 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 05:27:44 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 05:27:44 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 05:27:52 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:27:52 PM - <module> - DEBUG - Client Brandtrack is linked to the logged in user
-24/05/2021 05:27:52 PM - <module> - DEBUG - Client Name is: Brandtrack
-24/05/2021 05:27:52 PM - <module> - DEBUG - Client ID is: 136
-
-
-24/05/2021 05:27:52 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 05:27:52 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/adaccounts/
-24/05/2021 05:27:53 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:27:53 PM - <module> - DEBUG - [{'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 100, 'fb_id': '738224729878901', 'name': 'MPL_Absentia'}, {'id': 117, 'fb_id': '502398030495312', 'name': 'AIQ - MPL Pro_CPP'}, {'id': 111, 'fb_id': '2589725237947169', 'name': 'Brandtrack AIQ - OC BM2'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 110, 'fb_id': '343748033303757', 'name': 'DBS AIQ - OC BM2'}, {'id': 92, 'fb_id': '303300246923901', 'name': 'Pictor7'}]
-24/05/2021 05:27:53 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:27:53 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 05:27:53 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/mpadaccounts/
-24/05/2021 05:27:55 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:27:55 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 05:27:55 PM - <module> - ERROR - module 'payload' has no attribute 'adaccountID'
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 320, in step_impl
-    endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID(),
-  File "c:\users\aditi mantri\pycharmprojects\pyxisperformancepythonautomation\venv\payload.py", line 42, in getAdaccountID
-    return payload.adaccountID;
-AttributeError: module 'payload' has no attribute 'adaccountID'
-24/05/2021 05:28:52 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 05:28:52 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 05:28:52 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 05:28:53 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0MzkzMywianRpIjoiNjVjNTUwMjIyNmJmNGM3MTkyY2RiZmRiNTNiNGNkNzYiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.MHjkiX5rY8BRhyChe11uwP5EyuBKIMreJfjGHaSQQfs', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODU3ODMzLCJqdGkiOiIwZWJkNzY4MjYyODQ0YmE5YWNmZjQzYzQ0NGQ3YzE0YyIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.rITw_2L0IdnbNGjz7dSuqUe-OreaWCAJLMOVjVCbLis'}}
-24/05/2021 05:28:53 PM - <module> - DEBUG - Login status: 200
-24/05/2021 05:28:53 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:28:53 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 05:28:53 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 05:28:53 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 05:29:01 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:29:01 PM - <module> - DEBUG - Client TestClient is linked to the logged in user
-24/05/2021 05:29:01 PM - <module> - DEBUG - Client Name is: TestClient
-24/05/2021 05:29:01 PM - <module> - DEBUG - Client ID is: 122
-
-
-24/05/2021 05:29:01 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 05:29:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/adaccounts/
-24/05/2021 05:29:01 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:29:01 PM - <module> - DEBUG - [{'id': 27, 'fb_id': '574305696464596', 'name': 'Swiggy Branding AIQ'}, {'id': 138, 'fb_id': '717101715308343', 'name': 'Norah1'}, {'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 123, 'fb_id': '564784734205612', 'name': 'Livspace New Aiquire'}, {'id': 88, 'fb_id': '615232432629272', 'name': 'BookMyShow AIQ'}, {'id': 118, 'fb_id': '358098655374094', 'name': 'Livspace Singapore AIQ - OC'}, {'id': 67, 'fb_id': '657690591496070', 'name': 'AIQ CA 2 - OC'}, {'id': 106, 'fb_id': '2638873359712307', 'name': "Aditya's Test account"}, {'id': 91, 'fb_id': '2007313182663542', 'name': 'Pictor8'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 96, 'fb_id': '344642406467086', 'name': 'Livspace: AIQ'}, {'id': 137, 'fb_id': '2316556345309051', 'name': 'Global Acquisition AIQ'}, {'id': 99, 'fb_id': '832687727072200', 'name': 'TESTAdAccount'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 94, 'fb_id': '169015874296497', 'name': 'Brandtrack'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 95, 'fb_id': '1423876994467799', 'name': 'MPL AIQ wl - OC'}, {'id': 93, 'fb_id': '1213081792370182', 'name': 'AIQ CA 4 - OC'}, {'id': 136, 'fb_id': '1778650425775237', 'name': 'Bharti AXA Health  Aiquire'}, {'id': 2, 'fb_id': '1021860081218139', 'name': 'AIQ HDFCBANK -2'}]
-24/05/2021 05:29:01 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:29:01 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 05:29:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-24/05/2021 05:29:24 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:29:24 PM - <module> - DEBUG - Ad account nameBrandtrack
-24/05/2021 05:29:24 PM - <module> - DEBUG - Ad account ID: 94
-24/05/2021 05:29:24 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:29:24 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 05:29:24 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/94/status/
-24/05/2021 05:29:25 PM - <module> - DEBUG - Status error status: False
-24/05/2021 05:29:25 PM - <module> - DEBUG - Sync is completed from the backend
-24/05/2021 05:29:25 PM - <module> - DEBUG - Past data is not available
-24/05/2021 05:29:25 PM - <module> - ERROR - 
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 372, in step_impl
-    assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
-AssertionError
-24/05/2021 05:31:48 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 05:31:48 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 05:31:48 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 05:31:49 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0NDEwOSwianRpIjoiOGQwNzJjMWZjYTU0NGVlNTk3ZTNmZTBmNWM0YWE4YjUiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.bUMWdwjGcx9qwfAm_yVKExl1VlORmeX7OcoqyiU-OE8', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODU4MDA5LCJqdGkiOiJkMDcyZjJkYmIxMjM0ZThiOGZjYjhjZDhiMWEzZWE3NyIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.X7YqMMWMMArNF_Q6Y11smvkIw1f1_fuKrFBrd0jEVi4'}}
-24/05/2021 05:31:49 PM - <module> - DEBUG - Login status: 200
-24/05/2021 05:31:49 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:31:49 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 05:31:49 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 05:31:49 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 05:31:57 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:31:57 PM - <module> - DEBUG - Client TestClient is linked to the logged in user
-24/05/2021 05:31:57 PM - <module> - DEBUG - Client Name is: TestClient
-24/05/2021 05:31:57 PM - <module> - DEBUG - Client ID is: 122
-
-
-24/05/2021 05:31:57 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 05:31:57 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/adaccounts/
-24/05/2021 05:31:57 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:31:57 PM - <module> - DEBUG - [{'id': 27, 'fb_id': '574305696464596', 'name': 'Swiggy Branding AIQ'}, {'id': 138, 'fb_id': '717101715308343', 'name': 'Norah1'}, {'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 123, 'fb_id': '564784734205612', 'name': 'Livspace New Aiquire'}, {'id': 88, 'fb_id': '615232432629272', 'name': 'BookMyShow AIQ'}, {'id': 118, 'fb_id': '358098655374094', 'name': 'Livspace Singapore AIQ - OC'}, {'id': 67, 'fb_id': '657690591496070', 'name': 'AIQ CA 2 - OC'}, {'id': 106, 'fb_id': '2638873359712307', 'name': "Aditya's Test account"}, {'id': 91, 'fb_id': '2007313182663542', 'name': 'Pictor8'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 96, 'fb_id': '344642406467086', 'name': 'Livspace: AIQ'}, {'id': 137, 'fb_id': '2316556345309051', 'name': 'Global Acquisition AIQ'}, {'id': 99, 'fb_id': '832687727072200', 'name': 'TESTAdAccount'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 94, 'fb_id': '169015874296497', 'name': 'Brandtrack'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 95, 'fb_id': '1423876994467799', 'name': 'MPL AIQ wl - OC'}, {'id': 93, 'fb_id': '1213081792370182', 'name': 'AIQ CA 4 - OC'}, {'id': 136, 'fb_id': '1778650425775237', 'name': 'Bharti AXA Health  Aiquire'}, {'id': 2, 'fb_id': '1021860081218139', 'name': 'AIQ HDFCBANK -2'}]
-24/05/2021 05:31:57 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:31:57 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 05:31:57 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-24/05/2021 05:32:18 PM - <module> - DEBUG - Login error status: False
-24/05/2021 05:32:18 PM - <module> - DEBUG - Ad account nameBrandtrack
-24/05/2021 05:32:18 PM - <module> - DEBUG - Ad account ID: 94
-24/05/2021 05:32:18 PM - <module> - DEBUG - 
-
-
-24/05/2021 05:32:18 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 05:32:18 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/94/status/
-24/05/2021 05:32:18 PM - <module> - DEBUG - Status error status: False
-24/05/2021 05:32:18 PM - <module> - DEBUG - Sync is completed from the backend
-24/05/2021 05:32:18 PM - <module> - DEBUG - Past data is not available
-24/05/2021 05:32:18 PM - <module> - ERROR - 
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 374, in step_impl
-    assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
-AssertionError
-24/05/2021 06:18:00 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 06:18:00 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 06:18:00 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 06:18:01 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0Njg4MCwianRpIjoiYTNmYjQzNmQ5MDVlNDAxZWFlYzczN2E2ZjBkMzU5NGUiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.LQRtAOL4y3OIDi5FVUV9XSCguSpv3oLqm-68RtG_D98', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODYwNzgwLCJqdGkiOiI2OTRkNmFjNjUxYzQ0YjFkOWQ5YWI4ODNjMDczMGVjMCIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.GCj_ePe4MzQrnRtF7-4B3I1l9BPtVLl0UxUaoYF5_t4'}}
-24/05/2021 06:18:01 PM - <module> - DEBUG - Login status: 200
-24/05/2021 06:18:01 PM - <module> - DEBUG - Login error status: False
-24/05/2021 06:18:01 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 06:18:01 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 06:18:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 06:18:14 PM - <module> - DEBUG - Login error status: False
-24/05/2021 06:18:14 PM - <module> - DEBUG - Client TestClient is linked to the logged in user
-24/05/2021 06:18:14 PM - <module> - DEBUG - Client Name is: TestClient
-24/05/2021 06:18:14 PM - <module> - DEBUG - Client ID is: 122
-
-
-24/05/2021 06:18:14 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 06:18:14 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/adaccounts/
-24/05/2021 06:18:14 PM - <module> - DEBUG - Login error status: False
-24/05/2021 06:18:14 PM - <module> - DEBUG - [{'id': 27, 'fb_id': '574305696464596', 'name': 'Swiggy Branding AIQ'}, {'id': 138, 'fb_id': '717101715308343', 'name': 'Norah1'}, {'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 123, 'fb_id': '564784734205612', 'name': 'Livspace New Aiquire'}, {'id': 88, 'fb_id': '615232432629272', 'name': 'BookMyShow AIQ'}, {'id': 118, 'fb_id': '358098655374094', 'name': 'Livspace Singapore AIQ - OC'}, {'id': 67, 'fb_id': '657690591496070', 'name': 'AIQ CA 2 - OC'}, {'id': 106, 'fb_id': '2638873359712307', 'name': "Aditya's Test account"}, {'id': 91, 'fb_id': '2007313182663542', 'name': 'Pictor8'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 96, 'fb_id': '344642406467086', 'name': 'Livspace: AIQ'}, {'id': 137, 'fb_id': '2316556345309051', 'name': 'Global Acquisition AIQ'}, {'id': 99, 'fb_id': '832687727072200', 'name': 'TESTAdAccount'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 94, 'fb_id': '169015874296497', 'name': 'Brandtrack'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 95, 'fb_id': '1423876994467799', 'name': 'MPL AIQ wl - OC'}, {'id': 93, 'fb_id': '1213081792370182', 'name': 'AIQ CA 4 - OC'}, {'id': 136, 'fb_id': '1778650425775237', 'name': 'Bharti AXA Health  Aiquire'}, {'id': 2, 'fb_id': '1021860081218139', 'name': 'AIQ HDFCBANK -2'}]
-24/05/2021 06:18:14 PM - <module> - DEBUG - 
-
-
-24/05/2021 06:18:14 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 06:18:14 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-24/05/2021 06:18:38 PM - <module> - DEBUG - Login error status: False
-24/05/2021 06:18:38 PM - <module> - DEBUG - Ad account nameBajaj Auto Aiquire
-24/05/2021 06:18:38 PM - <module> - DEBUG - Ad account ID: 35
-24/05/2021 06:18:38 PM - <module> - DEBUG - 
-
-
-24/05/2021 06:18:38 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 06:18:38 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/35/status/
-24/05/2021 06:18:38 PM - <module> - DEBUG - Status error status: False
-24/05/2021 06:18:38 PM - <module> - DEBUG - Sync is completed from the backend
-24/05/2021 06:18:38 PM - <module> - DEBUG - Past data is not available
-24/05/2021 06:18:38 PM - <module> - ERROR - 
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 374, in step_impl
-    assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
-AssertionError
-24/05/2021 07:03:24 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 07:03:24 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 07:03:24 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 07:03:25 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk0OTYwNSwianRpIjoiZTkxYzE1ZjEyNWEyNDc2NGI5ZTE5ZTFlNjliYzE0ZTMiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.bgHT4sfeumVsaMlhTUFY7FjQgyTizwGQrtUokRZH3_E', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODYzNTA1LCJqdGkiOiJhNTcxY2MxMDZiODQ0YzNkOTAxNWU1MWI5MzNlNTY1YyIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.iexNPPcToFXWrVL053uP02k2nDRf1pJr5E-ckOClKE8'}}
-24/05/2021 07:03:25 PM - <module> - DEBUG - Login status: 200
-24/05/2021 07:03:25 PM - <module> - DEBUG - Login error status: False
-24/05/2021 07:03:25 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 07:03:25 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 07:03:25 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 07:03:34 PM - <module> - DEBUG - Login error status: False
-24/05/2021 07:03:34 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 07:03:34 PM - <module> - ERROR - module 'payload' has no attribute 'clientID'
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 160, in step_impl
-    endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.adaccounts)
-  File "c:\users\aditi mantri\pycharmprojects\pyxisperformancepythonautomation\venv\payload.py", line 32, in getClientID
-    return payload.clientID
-AttributeError: module 'payload' has no attribute 'clientID'
-24/05/2021 07:03:35 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 07:03:35 PM - <module> - ERROR - module 'payload' has no attribute 'clientID'
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 208, in step_impl
-    endpoint = "{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.mpadaccounts)
-  File "c:\users\aditi mantri\pycharmprojects\pyxisperformancepythonautomation\venv\payload.py", line 32, in getClientID
-    return payload.clientID
-AttributeError: module 'payload' has no attribute 'clientID'
-24/05/2021 07:03:35 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 07:03:35 PM - <module> - ERROR - module 'payload' has no attribute 'adaccountID'
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 320, in step_impl
-    endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID(),
-  File "c:\users\aditi mantri\pycharmprojects\pyxisperformancepythonautomation\venv\payload.py", line 42, in getAdaccountID
-    return payload.adaccountID;
-AttributeError: module 'payload' has no attribute 'adaccountID'
-24/05/2021 07:24:27 PM - <module> - INFO - 
-
-****************************NEW RUN****************************
-
-
-24/05/2021 07:24:27 PM - <module> - INFO - 
-
----------------Login---------------
-24/05/2021 07:24:27 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-24/05/2021 07:24:28 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMTk1MDg2OCwianRpIjoiNjAxNWJmMGUxNWEyNDQ0OTgyMWFjZjA2NTA2NjQ1NDciLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.WtNK2rSPiwabZTzg5BKIhN8i4iqvr-AfFJyd332aYFs', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxODY0NzY4LCJqdGkiOiI1YThiYTNlNzczODU0MDgxODliNzA0MmMxMzZjOGU5NyIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.8mXuwKDMf1TgZ_KAsrv0eQz5ojq313g0MNmJqY6bQk0'}}
-24/05/2021 07:24:28 PM - <module> - DEBUG - Login status: 200
-24/05/2021 07:24:28 PM - <module> - DEBUG - Login error status: False
-24/05/2021 07:24:28 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
-
-
-24/05/2021 07:24:28 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-24/05/2021 07:24:28 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-24/05/2021 07:24:37 PM - <module> - DEBUG - Login error status: False
-24/05/2021 07:24:37 PM - <module> - DEBUG - Client TestClient is linked to the logged in user
-24/05/2021 07:24:37 PM - <module> - DEBUG - Client Name is: TestClient
-24/05/2021 07:24:37 PM - <module> - DEBUG - Client ID is: 122
-
-
-24/05/2021 07:24:37 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-24/05/2021 07:24:37 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/adaccounts/
-24/05/2021 07:24:37 PM - <module> - DEBUG - Login error status: False
-24/05/2021 07:24:37 PM - <module> - DEBUG - [{'id': 27, 'fb_id': '574305696464596', 'name': 'Swiggy Branding AIQ'}, {'id': 138, 'fb_id': '717101715308343', 'name': 'Norah1'}, {'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 123, 'fb_id': '564784734205612', 'name': 'Livspace New Aiquire'}, {'id': 88, 'fb_id': '615232432629272', 'name': 'BookMyShow AIQ'}, {'id': 118, 'fb_id': '358098655374094', 'name': 'Livspace Singapore AIQ - OC'}, {'id': 67, 'fb_id': '657690591496070', 'name': 'AIQ CA 2 - OC'}, {'id': 106, 'fb_id': '2638873359712307', 'name': "Aditya's Test account"}, {'id': 91, 'fb_id': '2007313182663542', 'name': 'Pictor8'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 96, 'fb_id': '344642406467086', 'name': 'Livspace: AIQ'}, {'id': 137, 'fb_id': '2316556345309051', 'name': 'Global Acquisition AIQ'}, {'id': 99, 'fb_id': '832687727072200', 'name': 'TESTAdAccount'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 94, 'fb_id': '169015874296497', 'name': 'Brandtrack'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 95, 'fb_id': '1423876994467799', 'name': 'MPL AIQ wl - OC'}, {'id': 93, 'fb_id': '1213081792370182', 'name': 'AIQ CA 4 - OC'}, {'id': 136, 'fb_id': '1778650425775237', 'name': 'Bharti AXA Health  Aiquire'}, {'id': 2, 'fb_id': '1021860081218139', 'name': 'AIQ HDFCBANK -2'}]
-24/05/2021 07:24:37 PM - <module> - DEBUG - 
-
-
-24/05/2021 07:24:37 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-24/05/2021 07:24:37 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
-24/05/2021 07:24:59 PM - <module> - DEBUG - Login error status: False
-24/05/2021 07:24:59 PM - <module> - DEBUG - Ad account nameTest Account
-24/05/2021 07:24:59 PM - <module> - DEBUG - Ad account ID: 112
-24/05/2021 07:24:59 PM - <module> - DEBUG - 
-
-
-24/05/2021 07:24:59 PM - <module> - INFO - ---------------Get Status---------------
-24/05/2021 07:24:59 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/112/status/
-24/05/2021 07:25:00 PM - <module> - DEBUG - Status error status: False
-24/05/2021 07:25:00 PM - <module> - DEBUG - Sync is completed from the backend
-24/05/2021 07:25:00 PM - <module> - DEBUG - Past data is not available
-24/05/2021 07:25:00 PM - <module> - ERROR - 
-Traceback (most recent call last):
-  File "features\steps\stepImplementation.py", line 374, in step_impl
-    assert context.status_response_json['data']['status']['last_30d_available'] == 'true'
-AssertionError
+25/05/2021 10:42:02 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
+25/05/2021 10:42:03 AM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjAwNTkyMiwianRpIjoiNjZkZjc5ZGRjMTNiNDVmOWFmY2YwMGFkYzhkZTUxNTIiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.nbwncl_-iomVCNGB2NrJPJhCTsus1C3W0W6JF9nA7fs', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxOTE5ODIyLCJqdGkiOiJkNmQzODkxN2ZmZjk0OGEzOGJiYmQ1OTliMTZjZDk1OSIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.nQ_mXz0aWvhA1RoPn6wNXttjIX02pqnaEp0WSIwAFxc'}}
+25/05/2021 10:42:03 AM - <module> - DEBUG - Login status: 200
+25/05/2021 10:42:03 AM - <module> - DEBUG - Login error status: False
+25/05/2021 10:42:03 AM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
+
+
+25/05/2021 10:42:03 AM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
+25/05/2021 10:42:03 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
+25/05/2021 10:42:21 AM - <module> - DEBUG - Login error status: False
+25/05/2021 10:42:21 AM - <module> - DEBUG - Client TestClient is linked to the logged in user
+25/05/2021 10:42:21 AM - <module> - DEBUG - Client Name is: TestClient
+25/05/2021 10:42:21 AM - <module> - DEBUG - Client ID is: 122
+
+
+25/05/2021 10:42:21 AM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
+25/05/2021 10:42:21 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/adaccounts/
+25/05/2021 10:42:22 AM - <module> - DEBUG - Login error status: False
+25/05/2021 10:42:22 AM - <module> - DEBUG - [{'id': 27, 'fb_id': '574305696464596', 'name': 'Swiggy Branding AIQ'}, {'id': 138, 'fb_id': '717101715308343', 'name': 'Norah1'}, {'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 123, 'fb_id': '564784734205612', 'name': 'Livspace New Aiquire'}, {'id': 88, 'fb_id': '615232432629272', 'name': 'BookMyShow AIQ'}, {'id': 118, 'fb_id': '358098655374094', 'name': 'Livspace Singapore AIQ - OC'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 67, 'fb_id': '657690591496070', 'name': 'AIQ CA 2 - OC'}, {'id': 106, 'fb_id': '2638873359712307', 'name': "Aditya's Test account"}, {'id': 91, 'fb_id': '2007313182663542', 'name': 'Pictor8'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 96, 'fb_id': '344642406467086', 'name': 'Livspace: AIQ'}, {'id': 136, 'fb_id': '1778650425775237', 'name': 'Bharti AXA Health  Aiquire'}, {'id': 99, 'fb_id': '832687727072200', 'name': 'TESTAdAccount'}, {'id': 94, 'fb_id': '169015874296497', 'name': 'Brandtrack'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 137, 'fb_id': '2316556345309051', 'name': 'Global Acquisition AIQ'}, {'id': 95, 'fb_id': '1423876994467799', 'name': 'MPL AIQ wl - OC'}, {'id': 93, 'fb_id': '1213081792370182', 'name': 'AIQ CA 4 - OC'}, {'id': 2, 'fb_id': '1021860081218139', 'name': 'AIQ HDFCBANK -2'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}]
+
+
+25/05/2021 10:42:22 AM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
+25/05/2021 10:42:22 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/122/mpadaccounts/
+25/05/2021 10:42:46 AM - <module> - DEBUG - Login error status: False
+25/05/2021 10:42:46 AM - <module> - DEBUG - Ad account nameAIQ HDFCBANK -2
+25/05/2021 10:42:46 AM - <module> - DEBUG - Ad account ID: 2
+
+
+25/05/2021 10:42:46 AM - <module> - INFO - ---------------Get Status---------------
+25/05/2021 10:42:46 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/2/status/
+25/05/2021 10:42:47 AM - <module> - DEBUG - Status error status: False
+25/05/2021 10:42:47 AM - <module> - DEBUG - Sync is completed from the backend
+25/05/2021 10:42:47 AM - <module> - DEBUG - last 30d - True
+25/05/2021 10:42:47 AM - <module> - DEBUG - first 30d - True
+25/05/2021 10:42:47 AM - <module> - DEBUG - Past data is available
