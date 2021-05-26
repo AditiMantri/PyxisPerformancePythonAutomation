@@ -21,3 +21,5 @@ class apiResources:
     getStoryName = '/?storyname=true'
     publish = '/publish_request/new/'
     publishStatus = '/ads/queries/get-ads?'
+    metric = 'metric/?'
+    breakdown = '/breakdown/?'

@@ -368,9 +368,9 @@ def step_impl(context):
             if context.status_response_json['data']['status']['last_30d_available']:
                 log.debug(
                     "{}{}".format("first 30d - ", context.status_response_json['data']['status']['last_30d_available']))
-                log.debug("Past data is available")
+                log.debug("Past data is available \n\n")
         else:
-            log.debug("Past data is not available")
+            log.debug("Past data is not available \n\n")
             assert context.status_response_json['data']['status']['first_30d_available'] == True
             assert context.status_response_json['data']['status']['last_30d_available'] == True
     except Exception as e:
@@ -431,7 +431,61 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step6---------------------
+# ----------------------Step6.0---------------------
+
+
+@given(u'the adaccount id, date preset, objective, optimization goal and getMetricData endpoint')
+def step_impl(context):
+    log.info("---------------Get Metric data---------------")
+    try:
+        endpoint = "{}{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                       , "/", apiResources.metric)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "objective": "CONVERSIONS",
+            "event": "fb_primary_actions_offsite_conversion_fb_pixel_complete_registration"
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'Metric getAPI is executed')
+def step_impl(context):
+    try:
+        context.metric_response = requests.get(context.url,
+                                               headers=context.Authorization,
+                                               params=context.header)
+        context.metric_response_json = context.metric_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from Metric is false')
+def step_impl(context):
+    try:
+        assert context.metric_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.metric_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'store the metrics data')
+def step_impl(context):
+    try:
+        payload.saveMetricData(context.metric_response_json['data'])
+        log.debug("{}{}{}".format("Metric data is : ", payload.getMetricData(), "\n\n"))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step6.1---------------------
 
 
 @given(u'the token, client id, adaccount id and adaccounts endpoint')
@@ -439,8 +493,7 @@ def step_impl(context):
     log.info("---------------Get Instagram account---------------")
     try:
         endpoint = "{}{}{}{}{}".format(apiResources.getids, payload.getClientID(), '/adaccount/',
-                                       payload.getAdaccountID(),
-                                       apiResources.instagram)
+                                       payload.getAdaccountID(), apiResources.instagram)
         context.url = getConfig()['API']['endpoint'] + endpoint
         context.Authorization = {'Authorization': payload.getToken()}
         log.debug(f"URL is set to: " + context.url)
@@ -484,7 +537,64 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step7---------------------
+# ----------------------Step7.0---------------------
+
+
+@given(u'the adaccount id, date preset, objective and getCampaignIDs endpoint')
+def step_impl(context):
+    log.info("---------------Get Campaign IDs data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , "/")
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "objective": "CONVERSIONS"
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'getCampaignIDs getAPI is executed')
+def step_impl(context):
+    try:
+        context.campaignID_response = requests.get(context.url,
+                                                   headers=context.Authorization,
+                                                   params=context.header
+                                                   )
+        context.campaignID_response_json = context.campaignID_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getCampaignIDs is false')
+def step_impl(context):
+    try:
+        assert context.campaignID_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.campaignID_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'store all the campaign ids')
+def step_impl(context):
+    try:
+        values = []
+        for result in context.campaignID_response_json['data']['breakdown']:
+            values.append(result['campaign_id'])
+        payload.saveCampaignIDs(values)
+        log.debug("{}{}{}".format("Campaign Ids - ", payload.getCampaignIDs(), "\n\n"))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step7.1---------------------
 
 
 @given(u'the token, client id, adaccount id and CustomAudience endpoint')
@@ -536,7 +646,61 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step8---------------------
+# ----------------------Step8.1---------------------
+
+
+@given(u'the adaccount id, date preset, age breakdown, campaign IDs and the AgeBreakdown endpoint')
+def step_impl(context):
+    log.info("---------------Get Age breakdown data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , apiResources.breakdown)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "breakdown": "age",
+            "campaign_ids": payload.getCampaignIDs()
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the AgeBreakdown getAPI is executed')
+def step_impl(context):
+    try:
+        context.age_response = requests.get(context.url,
+                                            headers=context.Authorization,
+                                            params=context.header)
+        context.age_response_json = context.age_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getAgeBreakdown is false')
+def step_impl(context):
+    try:
+        assert context.age_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.age_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that the initial data from getAgeBreakdown is blank')
+def step_impl(context):
+    try:
+        if context.age_response_json['data']['breakdown'] == []:
+            log.debug("Age breakdown API successfully executed \n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step8.2---------------------
 
 
 @given(u'the token, client account id, ad account id and createExperimentSetup endpoint')
@@ -709,7 +873,61 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step9---------------------
+# ----------------------Step9.1---------------------
+
+
+@given(u'the adaccount id, date preset, age breakdown, campaign IDs and the GenderBreakdown endpoint')
+def step_impl(context):
+    log.info("---------------Get Gender breakdown data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , apiResources.breakdown)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "breakdown": "gender",
+            "campaign_ids": payload.getCampaignIDs()
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the GenderBreakdown getAPI is executed')
+def step_impl(context):
+    try:
+        context.gender_response = requests.get(context.url,
+                                               headers=context.Authorization,
+                                               params=context.header)
+        context.gender_response_json = context.gender_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getGenderBreakdown is false')
+def step_impl(context):
+    try:
+        assert context.gender_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.gender_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that the initial data from getGenderBreakdown is blank')
+def step_impl(context):
+    try:
+        if context.gender_response_json['data']['breakdown'] == []:
+            log.debug("Gender breakdown API successfully executed \n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step9.2---------------------
 
 
 @given(u'the token, experiment setup ID and the getExperimentSetup endpoint')

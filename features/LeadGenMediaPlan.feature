@@ -23,7 +23,7 @@ Feature: LeadGen end to end API for Media Plan
     Then store the client ID <ClientName>
       Examples:
         |ClientName|
-        |TestClient|
+        |Brandtrack|
 
 
     @leadGenMediaPlan
@@ -42,7 +42,7 @@ Feature: LeadGen end to end API for Media Plan
     Then store the id of <adaccountName> if adaccount name is present in the adaccount list
     Examples:
       |adaccountName|
-      |AIQ HDFCBANK -2|
+      |DBS AIQ - OC BM2|
 
 
     @leadGenMediaPlan
@@ -52,3 +52,35 @@ Feature: LeadGen end to end API for Media Plan
       And the error response from status is false
       Then verify that the sync_status is DONE
       And last_30d_available and first_30d_available are both true
+
+
+    @leadGenMediaPlan
+    Scenario: Step 6 - Get Metric data
+      Given the adaccount id, date preset, objective, optimization goal and getMetricData endpoint
+      When Metric getAPI is executed
+      And the error response from Metric is false
+      Then store the metrics data
+
+
+    @leadGenMediaPlan
+    Scenario: Step 7 : Get Campaign IDs
+      Given the adaccount id, date preset, objective and getCampaignIDs endpoint
+      When getCampaignIDs getAPI is executed
+      And the error response from the getCampaignIDs is false
+      Then store all the campaign ids
+
+
+    @leadGenMediaPlan
+    Scenario: Step 8 : Get Age breakdown
+      Given the adaccount id, date preset, age breakdown, campaign IDs and the AgeBreakdown endpoint
+      When the AgeBreakdown getAPI is executed
+      And the error response from the getAgeBreakdown is false
+      Then verify that the initial data from getAgeBreakdown is blank
+
+
+    @leadGenMediaPlan
+    Scenario: Step 9 : Get Gender breakdown
+      Given the adaccount id, date preset, age breakdown, campaign IDs and the GenderBreakdown endpoint
+      When the GenderBreakdown getAPI is executed
+      And the error response from the getGenderBreakdown is false
+      Then verify that the initial data from getGenderBreakdown is blank

@@ -5,6 +5,9 @@ from payload import *
 from Utilities.configurations import *
 from Utilities.resources import *
 import requests
+from Utilities.log import custom_logger as log
+from Utilities.configurations import *
+from Utilities.resources import *
 
 # url = getConfig()["API"]['endpoint'] + apiResources.login
 #
@@ -38,8 +41,15 @@ import requests
 #
 # print("{}{}{}".format(apiResources.getExpSetup, 106, '/'))
 
-a = [111, 222, 333, 444, 555]
-length = len(a)
-val = random.randint(0, length)
-print(a[val])
-
+endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, "2/",
+                             apiResources.metric)
+url = getConfig()['API']['endpoint'] + endpoint
+print(url)
+Auth = {'Authorization': "Token f0b3ff6d5da1431c3ba92dc690174a3183567490"}
+header = {
+    "date_preset": "last_60d",
+    "objective": "CONVERSIONS",
+    "event": "fb_primary_actions_offsite_conversion_custom_519972278674063"
+}
+response = requests.get(url, headers=Auth, params=header)
+print(response.text)

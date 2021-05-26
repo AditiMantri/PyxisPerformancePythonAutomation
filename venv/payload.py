@@ -408,3 +408,17 @@ def saveAdaccountsList(adaccounts):
 
 def getAdaccountsList():
     return payload.adaccounts
+
+
+def saveMetricData(MetricData):
+    payload.MetricData = MetricData
+
+def getMetricData():
+    return payload.MetricData
+
+def saveCampaignIDs(Breakdown):
+    payload.Breakdown = Breakdown
+
+def getCampaignIDs():
+    return payload.Breakdown
+
