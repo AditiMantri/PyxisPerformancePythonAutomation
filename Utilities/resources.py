@@ -23,3 +23,6 @@ class apiResources:
     publishStatus = '/ads/queries/get-ads?'
     metric = 'metric/?'
     breakdown = '/breakdown/?'
+    generateMediaPlan = '/generate-media-plan/'
+    getMediaPlan = '/media-plans/?'
+    fetchMediaPlan = '/media-plans/'

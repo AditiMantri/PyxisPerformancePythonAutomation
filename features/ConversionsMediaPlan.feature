@@ -80,7 +80,56 @@ Feature: LeadGen end to end API for Media Plan
 
     @leadGenMediaPlan
     Scenario: Step 9 : Get Gender breakdown
-      Given the adaccount id, date preset, age breakdown, campaign IDs and the GenderBreakdown endpoint
+      Given the adaccount id, date preset, Gender breakdown, campaign IDs and the GenderBreakdown endpoint
       When the GenderBreakdown getAPI is executed
       And the error response from the getGenderBreakdown is false
       Then verify that the initial data from getGenderBreakdown is blank
+
+
+    @leadGenMediaPlan
+    Scenario: Step 10 : Get Publisher Platform breakdown
+      Given the adaccount id, date preset, PublisherPlatform breakdown, campaign IDs and the PublisherPlatform endpoint
+      When the PublisherPlatform getAPI is executed
+      And the error response from the getPublisherPlatform is false
+      Then verify that the initial data from getPublisherPlatform is blank
+
+
+    @leadGenMediaPlan
+    Scenario: Step 11 : Get Device Platform breakdown
+      Given the adaccount id, date preset, DevicePlatform breakdown, campaign IDs and the DevicePlatform endpoint
+      When the DevicePlatform getAPI is executed
+      And the error response from the getDevicePlatform is false
+      Then verify that the initial data from getDevicePlatform is blank
+
+
+    @leadGenMediaPlan
+    Scenario: Step 12 : Get Region breakdown
+      Given the adaccount id, date preset, Region breakdown, campaign IDs and the Region endpoint
+      When the Region getAPI is executed
+      And the error response from the getRegion is false
+      Then verify that the initial data from getRegion is blank
+
+
+    @leadGenMediaPlan
+    Scenario: Step 13 : Generate Media plan
+      Given the adaccount id, json and media plan end point
+      When the generateMediaPlan postAPI is executed
+      And the error response from the postgenerateMediaPlan is false
+      Then verify that success is true
+
+
+#    @leadGenMediaPlan
+#    Scenario: Step 14 : Get Media Plan ID
+#      Given the client id, objective and get media plan endpoint
+#      When the getMediaPlan getAPI is executed
+#      And the error response from the getMediaPlan is false
+#      Then compare the media plan created date, other details and save the media plan id
+#
+#
+#    @leadGenMediaPlan
+#    Scenario: Step 15 : Fetch Media Plan Details
+#      Given the media plan ID and the media plan endpoint
+#      When the fetchMediaPlan getAPI is executed
+#      And the error response from the fetchMediaPlan is false
+#      Then get the details of the media plan created
+

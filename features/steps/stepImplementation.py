@@ -876,7 +876,7 @@ def step_impl(context):
 # ----------------------Step9.1---------------------
 
 
-@given(u'the adaccount id, date preset, age breakdown, campaign IDs and the GenderBreakdown endpoint')
+@given(u'the adaccount id, date preset, Gender breakdown, campaign IDs and the GenderBreakdown endpoint')
 def step_impl(context):
     log.info("---------------Get Gender breakdown data---------------")
     try:
@@ -974,7 +974,62 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step10---------------------
+# ----------------------Step10.1---------------------
+
+
+@given(u'the adaccount id, date preset, PublisherPlatform breakdown, campaign IDs and the PublisherPlatform endpoint')
+def step_impl(context):
+    log.info("---------------Get PublisherPlatform data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , apiResources.breakdown)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "breakdown": "publisher_platform",
+            "campaign_ids": payload.getCampaignIDs()
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the PublisherPlatform getAPI is executed')
+def step_impl(context):
+    try:
+        context.PublisherPlatform_response = requests.get(context.url,
+                                                          headers=context.Authorization,
+                                                          params=context.header)
+        context.PublisherPlatform_response_json = context.PublisherPlatform_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getPublisherPlatform is false')
+def step_impl(context):
+    try:
+        assert context.PublisherPlatform_response_json['error'] == False
+        log.debug(
+            "{}{}".format("getPublisherPlatform error status: ", context.PublisherPlatform_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that the initial data from getPublisherPlatform is blank')
+def step_impl(context):
+    try:
+        if context.PublisherPlatform_response_json['data']['breakdown'] == []:
+            log.debug("PublisherPlatform breakdown API successfully executed \n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step10.2---------------------
 
 @given(u'the token,experiment setup ID and the updateExperimentSetup endpoint')
 def step_impl(context):
@@ -1064,7 +1119,61 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step11---------------------
+# ----------------------Step11.1---------------------
+
+
+@given(u'the adaccount id, date preset, DevicePlatform breakdown, campaign IDs and the DevicePlatform endpoint')
+def step_impl(context):
+    log.info("---------------Get DevicePlatform data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , apiResources.breakdown)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "breakdown": "device_platform",
+            "campaign_ids": payload.getCampaignIDs()
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the DevicePlatform getAPI is executed')
+def step_impl(context):
+    try:
+        context.DevicePlatform_response = requests.get(context.url,
+                                                       headers=context.Authorization,
+                                                       params=context.header)
+        context.DevicePlatform_response_json = context.DevicePlatform_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getDevicePlatform is false')
+def step_impl(context):
+    try:
+        assert context.DevicePlatform_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.DevicePlatform_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that the initial data from getDevicePlatform is blank')
+def step_impl(context):
+    try:
+        if context.DevicePlatform_response_json['data']['breakdown'] == []:
+            log.debug("DevicePlatform breakdown API successfully executed \n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step11.2---------------------
 
 @given(u'the client id, ad account id, experiment setup id and the getCreative endpoint')
 def step_impl(context):
@@ -1111,7 +1220,61 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step12---------------------
+# ----------------------Step12.1---------------------
+
+
+@given(u'the adaccount id, date preset, Region breakdown, campaign IDs and the Region endpoint')
+def step_impl(context):
+    log.info("---------------Get Region data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , apiResources.breakdown)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        context.header = {
+            "date_preset": "last_60d",
+            "breakdown": "region",
+            "campaign_ids": payload.getCampaignIDs()
+        }
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the Region getAPI is executed')
+def step_impl(context):
+    try:
+        context.region_response = requests.get(context.url,
+                                               headers=context.Authorization,
+                                               params=context.header)
+        context.region_response_json = context.region_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getRegion is false')
+def step_impl(context):
+    try:
+        assert context.region_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.region_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that the initial data from getRegion is blank')
+def step_impl(context):
+    try:
+        if context.region_response_json['data']['breakdown'] == []:
+            log.debug("Region breakdown API successfully executed \n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step12.2---------------------
 
 @given(u'the client id and the getCreativeFiles endpoint')
 def step_impl(context):
@@ -1157,7 +1320,57 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step13---------------------
+# ----------------------Step13.1---------------------
+
+@given(u'the adaccount id, json and media plan end point')
+def step_impl(context):
+    log.info("---------------Generate Media Plan---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.api, apiResources.getAdaccount, payload.getAdaccountID()
+                                     , apiResources.generateMediaPlan)
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.payload = generateMediaPlanPayload()
+        context.Authorization = {'Authorization': payload.getToken()}
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the generateMediaPlan postAPI is executed')
+def step_impl(context):
+    try:
+        context.generateMediaPlan_response = requests.post(context.url,
+                                                           headers=context.Authorization,
+                                                           json=context.payload)
+        context.generateMediaPlan_response_json = context.generateMediaPlan_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the postgenerateMediaPlan is false')
+def step_impl(context):
+    try:
+        assert context.generateMediaPlan_response_json['error'] == False
+        log.debug("{}{}".format("Login error status: ", context.generateMediaPlan_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'verify that success is true')
+def step_impl(context):
+    try:
+        if context.generateMediaPlan_response_json['data']['success'] == True:
+            log.debug(context.generateMediaPlan_response_json)
+            log.debug("Media plan created successfully \n\n")
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+# ----------------------Step13.2---------------------
 
 
 @given(u'the client id and the getCreativeTemplate endpoint')
@@ -1205,7 +1418,57 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step14---------------------
+# ----------------------Step14.1---------------------
+
+@given(u'the client id, objective and get media plan endpoint')
+def step_impl(context):
+    log.info("---------------Get Media plan data---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.clients, payload.getClientID(), apiResources.getMediaPlan,
+                                     "objective=CONVERSIONS")
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the getMediaPlan getAPI is executed')
+def step_impl(context):
+    try:
+        context.getMediaPlan_response = requests.get(context.url,
+                                                     headers=context.Authorization)
+        log.debug(context.getMediaPlan_response)
+        context.getMediaPlan_response_json = context.getMediaPlan_response.json()
+        log.debug(context.getMediaPlan_response_json)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the getMediaPlan is false')
+def step_impl(context):
+    try:
+        assert context.getMediaPlan_response_json['error'] == False
+        log.debug("{}{}".format("Get Media Plan status: ", context.getMediaPlan_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'compare the media plan created date, other details and save the media plan id')
+def step_impl(context):
+    id_list = []
+    for result in context.getMediaPlan_response_json['data']:
+        id_list.append(result['id'])
+    payload.setMediaPlanList(id_list)
+    log.debug("{}{}".format("Media plans ids available are", payload.getMediaPlanList()))
+    payload.setMediaPlanID(max(id_list))
+    log.debug("{}{}{}".format("The media plan id is: ", payload.getMediaPlanID(), "\n\n"))
+
+
+# ----------------------Step14.2---------------------
 
 
 @given(u'the client id and the getPixel endpoint')
@@ -1257,7 +1520,55 @@ def step_impl(context):
         raise e
 
 
-# ----------------------Step15---------------------
+# ----------------------Step15.1---------------------
+
+
+@given(u'the media plan ID and the media plan endpoint')
+def step_impl(context):
+    log.info("---------------Get Media plan details---------------")
+    try:
+        endpoint = "{}{}{}{}".format(apiResources.clients, payload.getClientID()
+                                     , apiResources.fetchMediaPlan, payload.getMediaPlanID())
+        context.url = getConfig()['API']['endpoint'] + endpoint
+        context.Authorization = {'Authorization': payload.getToken()}
+        log.debug(f"URL is set to: " + context.url)
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the fetchMediaPlan getAPI is executed')
+def step_impl(context):
+    try:
+        context.MediaPlan_response = requests.get(context.url,
+                                                  headers=context.Authorization)
+        context.MediaPlan_response_json = context.MediaPlan_response.json()
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@when(u'the error response from the fetchMediaPlan is false')
+def step_impl(context):
+    try:
+        assert context.MediaPlan_response_json['error'] == False
+        log.debug("{}{}".format("Media plan fetch status: ", context.MediaPlan_response_json['error']))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+
+@then(u'get the details of the media plan created')
+def step_impl(context):
+    try:
+        payload.setMediaPlanDetails(context.MediaPlan_response_json)
+        log.debug("{}{}".format("Media plan details - ", payload.getMediaPlanDetails()))
+    except Exception as e:
+        log.exception(str(e))
+        raise e
+
+# ----------------------Step15.2---------------------
+
 
 @given(u'the client id, ad account id, experiment setup id and the postCreative endpoint')
 def step_impl(context):

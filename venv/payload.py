@@ -1,6 +1,5 @@
 import payload
 import xlrd
-
 # -------------------------------- COMMON METHODS --------------------------------
 
 # Login and password that gets passed to login to aiquire dashboard
@@ -421,4 +420,40 @@ def saveCampaignIDs(Breakdown):
 
 def getCampaignIDs():
     return payload.Breakdown
+
+def generateMediaPlanPayload():
+    body = {
+        "objective": "CONVERSIONS",
+        "event": True,
+        "client_id": 136,
+        "name": "API",
+        "pastSpends": "last_60d",
+        "date_start": "2021-05-28",
+        "date_stop": "2021-05-31",
+        "budget": 100,
+        "crmMetricInput": False,
+        "campaign_ids": ["23847226582960688"],
+        "crmInputMetrics": [{}],
+        "key": "fb_primary_actions_offsite_conversion_fb_pixel_complete_registration"
+    }
+    return body
+
+
+def setMediaPlanID(MediaPlanID):
+    payload.MediaPlanID = MediaPlanID
+
+def getMediaPlanID():
+    return payload.MediaPlanID
+
+def setMediaPlanList(list):
+    payload.list = list
+
+def getMediaPlanList():
+    return payload.list
+
+def setMediaPlanDetails(MediaPlanDetails):
+    payload.MediaPlanDetails = MediaPlanDetails
+
+def getMediaPlanDetails():
+    return payload.MediaPlanDetails
 

@@ -1,69 +1,94 @@
-26/05/2021 10:52:17 AM - <module> - INFO - 
+01/06/2021 01:34:34 PM - <module> - INFO - 
 
 ****************************NEW RUN****************************
 
 
-26/05/2021 10:52:17 AM - <module> - INFO - 
+01/06/2021 01:34:34 PM - <module> - INFO - 
 
 ---------------Login---------------
-26/05/2021 10:52:17 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
-26/05/2021 10:52:18 AM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjA5MjkzNSwianRpIjoiYmNlZWVlODY2OGNmNGNhMzlhMGYxZDVlNmE1NjhhZDIiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.bTwumExt9xoViBXyG3X7ER47V4HsLHUvzbXpmzc0xP4', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIyMDA2ODM1LCJqdGkiOiIzZmUxZTIwMDhjMzc0ZDlmOTU1NGVhZjY0OTkzOGI4MyIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.OSNH7vRi_rZn6_G-sOv0MP-DC24v5I7lJDmoatDqnZo'}}
-26/05/2021 10:52:18 AM - <module> - DEBUG - Login status: 200
-26/05/2021 10:52:18 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:18 AM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
+01/06/2021 01:34:34 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/auth/login/
+01/06/2021 01:34:35 PM - <module> - DEBUG - Login response: {'error': False, 'data': {'key': 'f0b3ff6d5da1431c3ba92dc690174a3183567490', 'refresh_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjYyMTA3NCwianRpIjoiOGI4ZmUzZDE4YWI4NGViYjk2MzQ2YTU4YzU3YWU0YzUiLCJlbWFpbCI6InRlc3RAYWlxdWlyZS5jb20iLCJ1c2VybmFtZSI6InRlc3RfdXNlciIsImZpcnN0X25hbWUiOiIiLCJsYXN0X25hbWUiOiIiLCJpZCI6Nzd9.HI8Jmtw-fdEssCt_cnr-2Mio0gR0QEGXPYgJ1127X7E', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIyNTM0OTc0LCJqdGkiOiI5Y2QzZTZlNWUzMWI0YzdkOWYzZjY5OWMwMzAzMjcwZCIsImVtYWlsIjoidGVzdEBhaXF1aXJlLmNvbSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlkIjo3N30.RnFJj4jmlcK-Dr7jUIrrq_bkyXtyF_gO1sPlqH423Jc'}}
+01/06/2021 01:34:35 PM - <module> - DEBUG - Login status: 200
+01/06/2021 01:34:35 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:34:35 PM - <module> - DEBUG - Token: Token f0b3ff6d5da1431c3ba92dc690174a3183567490
 
 
-26/05/2021 10:52:18 AM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
-26/05/2021 10:52:18 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
-26/05/2021 10:52:29 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:29 AM - <module> - DEBUG - Client Brandtrack is linked to the logged in user
-26/05/2021 10:52:29 AM - <module> - DEBUG - Client Name is: Brandtrack
-26/05/2021 10:52:29 AM - <module> - DEBUG - Client ID is: 136
+01/06/2021 01:34:35 PM - <module> - INFO - ---------------Get clients associated with the logged in user---------------
+01/06/2021 01:34:35 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/
+01/06/2021 01:34:41 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:34:41 PM - <module> - DEBUG - Client Brandtrack is linked to the logged in user
+01/06/2021 01:34:41 PM - <module> - DEBUG - Client Name is: Brandtrack
+01/06/2021 01:34:41 PM - <module> - DEBUG - Client ID is: 136
 
 
-26/05/2021 10:52:29 AM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
-26/05/2021 10:52:29 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/adaccounts/
-26/05/2021 10:52:29 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:29 AM - <module> - DEBUG - [{'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 100, 'fb_id': '738224729878901', 'name': 'MPL_Absentia'}, {'id': 117, 'fb_id': '502398030495312', 'name': 'AIQ - MPL Pro_CPP'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 111, 'fb_id': '2589725237947169', 'name': 'Brandtrack AIQ - OC BM2'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}, {'id': 110, 'fb_id': '343748033303757', 'name': 'DBS AIQ - OC BM2'}, {'id': 92, 'fb_id': '303300246923901', 'name': 'Pictor7'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}]
+01/06/2021 01:34:41 PM - <module> - INFO - ---------------Get adaccounts data with logged in user---------------
+01/06/2021 01:34:41 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/adaccounts/
+01/06/2021 01:34:41 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:34:41 PM - <module> - DEBUG - [{'id': 66, 'fb_id': '330073088021534', 'name': 'AIQ CA 1 - OC'}, {'id': 100, 'fb_id': '738224729878901', 'name': 'MPL_Absentia'}, {'id': 117, 'fb_id': '502398030495312', 'name': 'AIQ - MPL Pro_CPP'}, {'id': 111, 'fb_id': '2589725237947169', 'name': 'Brandtrack AIQ - OC BM2'}, {'id': 35, 'fb_id': '502607037345767', 'name': 'Bajaj Auto Aiquire'}, {'id': 112, 'fb_id': '2112918278956259', 'name': 'Test Account'}, {'id': 110, 'fb_id': '343748033303757', 'name': 'DBS AIQ - OC BM2'}, {'id': 92, 'fb_id': '303300246923901', 'name': 'Pictor7'}, {'id': 116, 'fb_id': '2539692029655297', 'name': 'TESTING Account'}, {'id': 31, 'fb_id': '748891605281115', 'name': 'P5'}, {'id': 97, 'fb_id': '1994506747511376', 'name': 'Pictor6'}]
 
 
-26/05/2021 10:52:29 AM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
-26/05/2021 10:52:29 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/mpadaccounts/
-26/05/2021 10:52:50 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:50 AM - <module> - DEBUG - Ad account nameDBS AIQ - OC BM2
-26/05/2021 10:52:50 AM - <module> - DEBUG - Ad account ID: 110
+01/06/2021 01:34:41 PM - <module> - INFO - ---------------Get mpadaccounts data with logged in user---------------
+01/06/2021 01:34:41 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/clients/136/mpadaccounts/
+01/06/2021 01:34:59 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:34:59 PM - <module> - DEBUG - Ad account nameDBS AIQ - OC BM2
+01/06/2021 01:34:59 PM - <module> - DEBUG - Ad account ID: 110
 
 
-26/05/2021 10:52:50 AM - <module> - INFO - ---------------Get Status---------------
-26/05/2021 10:52:50 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/status/
-26/05/2021 10:52:51 AM - <module> - DEBUG - Status error status: False
-26/05/2021 10:52:51 AM - <module> - DEBUG - Sync is completed from the backend
-26/05/2021 10:52:51 AM - <module> - DEBUG - last 30d - True
-26/05/2021 10:52:51 AM - <module> - DEBUG - first 30d - True
-26/05/2021 10:52:51 AM - <module> - DEBUG - Past data is available 
+01/06/2021 01:34:59 PM - <module> - INFO - ---------------Get Status---------------
+01/06/2021 01:34:59 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/status/
+01/06/2021 01:34:59 PM - <module> - DEBUG - Status error status: False
+01/06/2021 01:34:59 PM - <module> - DEBUG - Sync is completed from the backend
+01/06/2021 01:34:59 PM - <module> - DEBUG - last 30d - True
+01/06/2021 01:34:59 PM - <module> - DEBUG - first 30d - True
+01/06/2021 01:34:59 PM - <module> - DEBUG - Past data is available 
 
 
-26/05/2021 10:52:51 AM - <module> - INFO - ---------------Get Metric data---------------
-26/05/2021 10:52:51 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/metric/?
-26/05/2021 10:52:51 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:51 AM - <module> - DEBUG - Metric data is : {'metrics': [{'key': 'fb_primary_actions_comment', 'label': 'Post Comments', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_landing_page_view', 'label': 'Landing Page Views', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_lead', 'label': 'Lead', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_link_click', 'label': 'Link Clicks', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_offsite_conversion_fb_pixel_lead', 'label': 'Leads', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_offsite_conversion_fb_pixel_purchase', 'label': 'Website Purchase', 'format': 'general'}, {'key': 'fb_primary_actions_offsite_conversion_fb_pixel_view_content', 'label': 'View Content', 'format': 'general'}, {'key': 'fb_primary_actions_omni_purchase', 'label': 'Purchases', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_onsite_conversion_post_save', 'label': 'Post saves', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_post', 'label': 'Post shares', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_post_engagement', 'label': 'Post Engagement', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_post_reaction', 'label': 'Post reactions', 'format': 'comma_seperated'}, {'key': 'fb_primary_action_values_omni_purchase', 'label': 'Purchase Conversion Value', 'format': 'currency'}, {'key': 'fb_primary_clicks', 'label': 'Clicks (All)', 'format': 'comma_seperated'}, {'key': 'fb_primary_impressions', 'label': 'Impressions', 'format': 'comma_seperated'}, {'key': 'fb_primary_omni_view_content', 'label': 'Content Views', 'format': 'comma_seperated'}, {'key': 'fb_primary_reach', 'label': 'Reach', 'format': 'comma_seperated'}, {'key': 'fb_primary_spend', 'label': 'Spend', 'format': 'comma_seperated'}]}
+01/06/2021 01:34:59 PM - <module> - INFO - ---------------Get Metric data---------------
+01/06/2021 01:34:59 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/metric/?
+01/06/2021 01:35:00 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:35:00 PM - <module> - DEBUG - Metric data is : {'metrics': [{'key': 'fb_primary_actions_post_reaction', 'label': 'Post reactions', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_onsite_conversion_post_save', 'label': 'Post saves', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_post_engagement', 'label': 'Post Engagement', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_post', 'label': 'Post shares', 'format': 'comma_seperated'}, {'key': 'fb_primary_impressions', 'label': 'Impressions', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_offsite_conversion_fb_pixel_purchase', 'label': 'Website Purchase', 'format': 'general'}, {'key': 'fb_primary_clicks', 'label': 'Clicks (All)', 'format': 'comma_seperated'}, {'key': 'fb_primary_spend', 'label': 'Spend', 'format': 'comma_seperated'}, {'key': 'fb_primary_omni_view_content', 'label': 'Content Views', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_landing_page_view', 'label': 'Landing Page Views', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_comment', 'label': 'Post Comments', 'format': 'comma_seperated'}, {'key': 'fb_primary_reach', 'label': 'Reach', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_lead', 'label': 'Lead', 'format': 'comma_seperated'}, {'key': 'fb_primary_action_values_omni_purchase', 'label': 'Purchase Conversion Value', 'format': 'currency'}, {'key': 'fb_primary_actions_offsite_conversion_fb_pixel_lead', 'label': 'Leads', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_omni_purchase', 'label': 'Purchases', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_link_click', 'label': 'Link Clicks', 'format': 'comma_seperated'}, {'key': 'fb_primary_actions_offsite_conversion_fb_pixel_view_content', 'label': 'View Content', 'format': 'general'}]}
 
 
-26/05/2021 10:52:51 AM - <module> - INFO - ---------------Get Campaign IDs data---------------
-26/05/2021 10:52:51 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/
-26/05/2021 10:52:52 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:52 AM - <module> - DEBUG - Campaign Ids - ['23847226582960688', '23847108163150688', '23847226410070688', '23847226516360688', '23847159451720688', '23847102656100688']
+01/06/2021 01:35:00 PM - <module> - INFO - ---------------Get Campaign IDs data---------------
+01/06/2021 01:35:00 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/
+01/06/2021 01:35:00 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:35:00 PM - <module> - DEBUG - Campaign Ids - ['23847226410070688', '23847108163150688', '23847159451720688', '23847102656100688', '23847226582960688', '23847226516360688']
 
 
-26/05/2021 10:52:52 AM - <module> - INFO - ---------------Get Age breakdown data---------------
-26/05/2021 10:52:52 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
-26/05/2021 10:52:52 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:52 AM - <module> - DEBUG - Age breakdown API successfully executed 
+01/06/2021 01:35:00 PM - <module> - INFO - ---------------Get Age breakdown data---------------
+01/06/2021 01:35:00 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
+01/06/2021 01:35:00 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:35:00 PM - <module> - DEBUG - Age breakdown API successfully executed 
 
 
-26/05/2021 10:52:52 AM - <module> - INFO - ---------------Get Gender breakdown data---------------
-26/05/2021 10:52:52 AM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
-26/05/2021 10:52:52 AM - <module> - DEBUG - Login error status: False
-26/05/2021 10:52:52 AM - <module> - DEBUG - Gender breakdown API successfully executed 
+01/06/2021 01:35:00 PM - <module> - INFO - ---------------Get Gender breakdown data---------------
+01/06/2021 01:35:00 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
+01/06/2021 01:35:00 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:35:00 PM - <module> - DEBUG - Gender breakdown API successfully executed 
 
 
+01/06/2021 01:35:00 PM - <module> - INFO - ---------------Get PublisherPlatform data---------------
+01/06/2021 01:35:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
+01/06/2021 01:35:01 PM - <module> - DEBUG - getPublisherPlatform error status: False
+01/06/2021 01:35:01 PM - <module> - DEBUG - PublisherPlatform breakdown API successfully executed 
+
+
+01/06/2021 01:35:01 PM - <module> - INFO - ---------------Get DevicePlatform data---------------
+01/06/2021 01:35:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
+01/06/2021 01:35:01 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:35:01 PM - <module> - DEBUG - DevicePlatform breakdown API successfully executed 
+
+
+01/06/2021 01:35:01 PM - <module> - INFO - ---------------Get Region data---------------
+01/06/2021 01:35:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/breakdown/?
+01/06/2021 01:35:01 PM - <module> - DEBUG - Login error status: False
+01/06/2021 01:35:01 PM - <module> - DEBUG - Region breakdown API successfully executed 
+
+
+01/06/2021 01:35:01 PM - <module> - INFO - ---------------Generate Media Plan---------------
+01/06/2021 01:35:01 PM - <module> - DEBUG - URL is set to: https://report-staging.aiquire.com/api/api/adaccount/110/generate-media-plan/
+01/06/2021 01:35:02 PM - <module> - ERROR - 
+Traceback (most recent call last):
+  File "features\steps\stepImplementation.py", line 1355, in step_impl
+    assert context.generateMediaPlan_response_json['error'] == False
+AssertionError
